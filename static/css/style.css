@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #000000;
+  background-color: #60a3bc;
+}
+
+.container {
+  height: fit-content;
+  width: fit-content;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.form-container h3 {
+  text-align: center;
+}
+
+.form-container button {
+  margin: auto;
+  display: block;
+}
+
+.input {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
