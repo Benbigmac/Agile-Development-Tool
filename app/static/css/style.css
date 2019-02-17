@@ -19,6 +19,10 @@ body {
   margin-left: auto;
 }
 
+form {
+  text-align: center;
+}
+
 .form-container h3 {
   text-align: center;
 }
