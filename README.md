@@ -1,7 +1,14 @@
 # group7
 
-#How To run a python Flask file
-pipenv shell
-$env:FLASK_ENV = 'development'
-$env:FLASK_DEBUG = 1
-flask run
+
+create a virtual env
+python3 -m venv venv
+(venv) $ pip install flask
+(venv) $ pip install flask-wtf
+
+Run using:
+(venv) $ export FLASK_APP=fireScrum.py
+(venv) $ FLASK_ENV = 'development'
+(venv) $ flask run
+
+
