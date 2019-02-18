@@ -1,46 +1,58 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Signup for an Account</title>
-	<link href="../static/css/style.css" rel="stylesheet" type="text/css" />
-</head>
+	<head>
+		<meta charset="utf-8">
+		<title>FireScrum Sign-up Form</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<body>
-  <div class="form-container">
-    <form action="signup" method="post">
-      <h3>Sign-up Form</h3>
-      <div class="form-group">
-        <div class="input justify-center">
-          <label for="">First Name</label>
-            {{form.nameF}}
-        </div>
-        <div class="input justify-center">
-            <label for="">Last Name</label>
-            {{form.nameL}}
-        </div>
-        <div class="input justify-center">
-            <label for="">Email</label>
-            {{form.email}}
-        </div>
-        <div class="input justify-center">
-            <label for="">Username</label>
-            {{form.username}}
-        </div>
-        <div class="input justify-center">
-            <label for="">Password</label>
-            {{form.password}}
-        </div>
-        <div class="input justify-center">
-            <label for="">Confirm Password</label>
-            {{form.password}}
-        </div>
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 
-        <button>Sign-up</button>
-    </form>
-  </div>
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body><center>
+
+		<div class="wrapper" style="background-image: url('images/signup.jpg');">
+			<div class="inner1">
+				<form action="signup" method="post">
+					<h3>FireScrum Sign-up Form</h3>
+					<div class="form-group">
+						<div class="form-wrapper">
+							<label for="">First Name</label>
+							<input type="text" class="form-control" name="fname">
+						</div><br>
+						<div class="form-wrapper">
+							<label for="">Last Name</label>
+							<input type="text" class="form-control" name="lname">
+						</div><br>
+					</div>
+					<div class="form-wrapper">
+						<label for="">Email</label>
+						<input type="text" class="form-control" name="email">
+					</div><br>
+					<div class="form-wrapper">
+						<label for="">Username</label>
+						<input type="text" class="form-control" name="username">
+					</div><br>
+					<div class="form-wrapper">
+						<label for="">Password</label>
+						<input type="password" class="form-control" name="paswd">
+					</div><br>
+					<div class="form-wrapper">
+						<label for="">Confirm Password</label>
+						<input type="password" class="form-control">
+					</div><br>
+
+					<button>Sign-up</button>
+				</form>
+			</div>
+		</div>
+
+	</center></body>
+
 
   <script src="../static/js/script.js"></script>
   <script src="../static/js/jquery-3.3.1.min.js"></script>
