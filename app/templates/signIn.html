@@ -9,20 +9,30 @@
 </head>
 
 <body>
-	<form action="" method="post" novalidate>
-			 {{ form.hidden_tag() }}
-			 <p>
-					 {{ form.username.label }}<br>
-					 {{ form.username(size=32) }}
-			 </p>
-			 <p>
-					 {{ form.password.label }}<br>
-					 {{ form.password(size=32) }}
-			 </p>
-			 <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-			 <p>{{ form.submit() }}</p>
-	 </form>
+	<span class="login100-form-title p-t-20 p-b-45"></span>
 
+  <div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
+			{{form.username}}
+      <span class="focus-input100"></span>
+      <span class="symbol-input100">
+          <i class="fa fa-user"></i>
+      </span>
+  </div>
+  </br>
+  <div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
+      {{form.password}}
+      <span class="focus-input100"></span>
+      <span class="symbol-input100">
+          <i class="fa fa-lock"></i>
+      </span>
+  </div>
+  </br>
+  <div class="container-login100-form-btn p-t-10">
+    {{form.submit}}
+  </div>
+
+  <script src="../static/js/script.js"></script>
+  <script src="../static/js/jquery-3.3.1.min.js"></script>
 </body>
 
 </html>
