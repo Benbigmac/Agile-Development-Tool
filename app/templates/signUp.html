@@ -11,36 +11,38 @@
 
 
 <body>
-  <div class="form-container">
+  <div class="formcontrols">
     <form action="signup" method="post">
       <h3>Sign-up Form</h3>
       <div class="form-group">
-        <div class="input justify-center">
-          <label for="">First Name</label>
+        <div class="input justify-center spc">
+          <label for="">First Name </label>
             {{form.nameF}}
         </div>
         <div class="input justify-center">
-            <label for="">Last Name</label>
+            <label for="">Last Name </label>
             {{form.nameL}}
         </div>
         <div class="input justify-center">
-            <label for="">Email</label>
+            <label for="">Email </label>
             {{form.email}}
         </div>
         <div class="input justify-center">
-            <label for="">Username</label>
+            <label for="">Username </label>
             {{form.username}}
         </div>
         <div class="input justify-center">
-            <label for="">Password</label>
+            <label for="">Password </label>
             {{form.password}}
         </div>
         <div class="input justify-center">
-            <label for="">Confirm Password</label>
+            <label for="">Confirm Password </label>
             {{form.password}}
         </div>
 
-        <button>Sign-up</button>
+				<button type="reset" value="reset">Reset</button>
+			</br>
+        <button class="w3-xxlarge">Sign-up</button>
     </form>
   </div>
 
