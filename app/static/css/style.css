@@ -14,14 +14,10 @@ form {
   text-align: center;
 }
 
-input, label {
-}
-
 label {
     width:180px;
     clear:left;
     text-align:right;
-    padding-right:10px;
 }
 
 .container {
@@ -44,15 +40,10 @@ label {
   display: block;
 }
 
-.form-label-left {
-  margin:0px !important
-}
 
 .input {
   padding-top: 2px;
   padding-bottom: 2px;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .justify-center {
