@@ -50,3 +50,7 @@ label {
   display: flex;
   justify-content: center;
 }
+
+.card {
+  background-color: #ffff66 !important;
+}
