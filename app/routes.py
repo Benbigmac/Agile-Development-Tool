@@ -1,9 +1,13 @@
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request,session
 from app import app
 from app.forms import LoginForm, RegistrationForm
 import json
 
+<<<<<<< HEAD
 
+=======
+loggedIn=False
+>>>>>>> 990613a1184d663bf9c079e2abc91829d98798ad
 @app.route('/', methods=['GET', 'POST'])
 def home():
     form = LoginForm()
