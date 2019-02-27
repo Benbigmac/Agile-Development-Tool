@@ -51,7 +51,7 @@ def createProj():
         return redirect(url_for('projectList'))
     return render_template("projects.html")
 
-        return redirect(url_for('projectList'))
+    return redirect(url_for('projectList'))
     return render_template("createProject.html")
 
 
