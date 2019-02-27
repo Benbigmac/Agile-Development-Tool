@@ -40,7 +40,7 @@ def createProj():
     if request.method == 'POST':
     #    request.form[""]
         return redirect(url_for('projectList'))
-    return render_template("projects.html")
+    return render_template("createProject.html")
 
 @app.errorhandler(404)
 def not_found(error):
