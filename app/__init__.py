@@ -1,16 +1,16 @@
 from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
+import urllib
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
-from app import routes
 
-
-
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://SEW-TABUTER/SQLEXPRESS/blueprism6.3'
-db = SQLAlchemy(app)
+params = urllib.parse.quote_plus('DRIVER={SQL Server};SERVER=SEW-DESK;DATABASE=Firescrum;Trusted_Connection=yes;')
+app.config['SQLALCHEMY_DATABASE_URI'] = "mssql+pyodbc:///?odbc_connect=%s" % params
+ 
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+from app import routes
