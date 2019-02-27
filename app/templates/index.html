@@ -7,7 +7,7 @@
       <center>
         <h1>Already a Member?</h1>
 
-        <form>
+        <form action="{{ url_for('login') }}" method="POST">
   		    <div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
   					{{form.username}}
   					<span class="focus-input100"></span>
