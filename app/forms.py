@@ -19,3 +19,11 @@ class RegistrationForm(FlaskForm):
     nameF = StringField('Name')
     nameL = StringField('Name')
     submit = SubmitField("Create Account")
+
+
+class ProjectForm(FlaskForm):
+    titleOfProject = StringField('Project Name')
+    team = StringField('team')
+    description = StringField('description')
+    taskGoals = StringField('Goals of Project')
+    submit = SubmitField('Create Project')
