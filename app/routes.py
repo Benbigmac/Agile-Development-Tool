@@ -3,7 +3,9 @@ from app import app
 from app.forms import LoginForm, RegistrationForm, ProjectForm
 import json
 
+
 ListOPRojects=[{"name":"FireScrum","description":"IT's WHAT YOU're USING!"},{"name":"D&D Web App","description":"We're working on stuff here"}]
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -33,18 +35,25 @@ def about():
 
 @app.route('/projects')
 def projectList():
+
     projList=ListOPRojects
+
     return render_template("projects.html",projectList=projList, username="Ben")
 
 @app.route('/createProject', methods=['GET', 'POST'])
 def createProj():
     if request.method == 'POST':
+
         projectName=request.form["titleOfProject"]
         description=request.form["description"]
         newProj={"name":projectName,"description":description}
         ListOPRojects.append(newProj)
         return redirect(url_for('projectList'))
     return render_template("projects.html")
+
+        return redirect(url_for('projectList'))
+    return render_template("createProject.html")
+
 
 @app.errorhandler(404)
 def not_found(error):
