@@ -3,3 +3,4 @@
 *.dll
 *.pyc
 Pipfile
+.DS_Store
