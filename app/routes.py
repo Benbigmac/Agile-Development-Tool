@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request,session
 from app import app
-from app.forms import LoginForm, RegistrationForm
+from app.forms import LoginForm, RegistrationForm,ProjectForm
 import json
 
 
@@ -37,10 +37,11 @@ def projectList():
 
 @app.route('/createProject', methods=['GET', 'POST'])
 def createProj():
+    form = ProjectForm()
     if request.method == 'POST':
     #    request.form[""]
         return redirect(url_for('projectList'))
-    return render_template("createProject.html")
+    return render_template("createProject.html",form=form)
 
 @app.errorhandler(404)
 def not_found(error):
