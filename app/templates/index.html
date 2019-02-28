@@ -3,57 +3,53 @@
 {% block body %}
 <div class="container-fluid">
   <div class="row">
-<div class="col-md-4">
-<center>
-  <h1>Already a Member?</h1>
+    <div class="card light-yellow col-md-4">
+      <center>
+        <h1>Already a Member?</h1>
 
-<form action="{{ url_for('login') }}" method="POST">
-		<div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
-					{{form.username}}
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-user"></i>
-						</span>
-					</div>
+        <form action="{{ url_for('login') }}" method="POST">
+  		    <div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
+  					{{form.username}}
+  					<span class="focus-input100"></span>
+  					<span class="symbol-input100">
+  					<i class="fa fa-user"></i>
+  					</span>
+  			</div>
 
+  			<div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
+  				{{form.password}}
+  				<span class="focus-input100"></span>
+  				<span class="symbol-input100">
+  				<i class="fa fa-lock"></i>
+  				</span>
+  			</div>
+			<br>
 
-					<div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
-					{{form.password}}
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock"></i>
-						</span>
-					</div>
-          <br>
-          <br>
-					<div class="container-login100-form-btn p-t-10">
-						{{form.submit}}
-					</div>
+  			<div class="btn container-login100-form-bt p-t-10">
+  				{{form.submit}}
+  			</div>
 
-					<br>
-					<br>
-					<br>
-					<div>
-						<a href="about" class="txt1">
-							About FireScrum
-						</a>
-					</div>
+			<br>
+  			<br>
+  			<div>
+  				<a href="about" class="txt1 btn">
+  					About FireScrum
+  				</a>
+  			</div>
 
-          <br>
-					<div class="text-center w-full p-t-25 p-b-230">
-						<a href="signUp" class="txt1">
-							Not registered? Create a new account
-						</a>
-					</div>
+			<br>
+  			<div class="text-center w-full p-t-25 p-b-230">
+  				<a href="signUp" class="txt1 btn">
+  					Not registered? Create a new account
+  				</a>
+  			</div>
+  		</form>
+	</center>
+  </div>
 
-				</form>
-				</center>
-			</div>
-
-
-
-<div class="col-md-8">
-	<img src="../static/img/Picture1.png" style="height:650px;"/>
+  <div class="col-md-8">
+  	   <img src="../static/img/fire-med.png" style="height:85vh; padding:15px;"/>
+     </div>
+  </div>
 </div>
-</div></div>
 {% endblock %}
