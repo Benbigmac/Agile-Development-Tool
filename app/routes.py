@@ -48,6 +48,7 @@ def createProj():
     return render_template("createProject.html",form=form)
 
 
+
 @app.errorhandler(404)
 def not_found(error):
     return render_template('error.html'), 404
