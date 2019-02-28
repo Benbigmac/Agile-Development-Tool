@@ -1,7 +1,10 @@
 from flask import render_template, flash, redirect, url_for, request,session
 from app import app
-from app.forms import LoginForm, RegistrationForm,ProjectForm
+from app.forms import LoginForm, RegistrationForm, ProjectForm
 import json
+
+
+ListOPRojects=[{"name":"FireScrum","description":"IT's WHAT YOU're USING!"},{"name":"D&D Web App","description":"We're working on stuff here"}]
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -32,16 +35,26 @@ def about():
 
 @app.route('/projects')
 def projectList():
-    projList=[{"name":"FireScrum","description":"IT's WHAT YOU're USING!"},{"name":"D&D Web App","description":"We're working on stuff here"}]
+
+    projList=ListOPRojects
+
     return render_template("projects.html",projectList=projList, username="Ben")
 
 @app.route('/createProject', methods=['GET', 'POST'])
 def createProj():
     form = ProjectForm()
     if request.method == 'POST':
-    #    request.form[""]
+
+        projectName=request.form["titleOfProject"]
+        description=request.form["description"]
+        newProj={"name":projectName,"description":description}
+        ListOPRojects.append(newProj)
+        return redirect(url_for('projectList'))
+    return render_template("projects.html")
+
         return redirect(url_for('projectList'))
     return render_template("createProject.html",form=form)
+
 
 @app.errorhandler(404)
 def not_found(error):
