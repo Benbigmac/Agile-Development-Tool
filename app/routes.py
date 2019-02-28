@@ -38,13 +38,15 @@ def projectList():
 
 @app.route('/createProject', methods=['GET', 'POST'])
 def createProj():
+    form = ProjectForm()
     if request.method == 'POST':
         projectName=request.form["titleOfProject"]
         description=request.form["description"]
         newProj={"name":projectName,"description":description}
         ListOPRojects.append(newProj)
         return redirect(url_for('projectList'))
-    return render_template("projects.html")
+    return render_template("createProject.html",form=form)
+
 
 @app.errorhandler(404)
 def not_found(error):
