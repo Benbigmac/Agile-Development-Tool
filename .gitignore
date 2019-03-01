@@ -3,3 +3,6 @@
 *.dll
 *.pyc
 Pipfile
+Pipfile.*
+.vscode
+.vscode/*
