@@ -6,12 +6,7 @@ import urllib
 
 app = Flask(__name__)
 app.config.from_object(Config)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mssql+pyodbc://SEW-DESK/Firescrum'
 db = SQLAlchemy(app)
-
-SQLALCHEMY_TRACK_MODIFICATIONS = False
-
 migrate = Migrate(app,db)
 
-from app import routes #, models <- to be implmented
+from app import routes, models
