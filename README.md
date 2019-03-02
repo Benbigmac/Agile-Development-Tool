@@ -1,6 +1,5 @@
 # group7
 
-to import required libraries run requiredLibraries.py
 
 create a virtual env
 python3 -m venv venv

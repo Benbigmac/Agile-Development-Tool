@@ -50,3 +50,7 @@ label {
   display: flex;
   justify-content: center;
 }
+
+.light-yellow {
+  background-color: #ffff66 !important;
+}
