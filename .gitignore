@@ -3,4 +3,9 @@
 *.dll
 *.pyc
 Pipfile
+
+Pipfile.*
+.vscode
+.vscode/**
 .DS_Store
+
