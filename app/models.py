@@ -20,7 +20,7 @@ class Projects(db.Model):
     ProjectID = db.Column(db.Integer, primary_key=True,
                           index=True, unique=True)
     description = db.Column(db.String(50))
-    start_date = db.Column(db.Datetime, index=True)
+    start_date = db.Column(db.DateTime, index=True)
 
     def __repr__(self):
         return '<Projects {}>'.format(self.ProjectID)
@@ -46,5 +46,6 @@ class Tasks(db.Model):
 
 
 class Userprojects(db.Model):
+    ident = db.Column(db.Integer, primary_key=True, index=True, unique=True)
     ProjectID = db.Column(db.Integer, db.ForeignKey('Projects.ProjectID'))
     AccID = db.Column(db.Integer, db.ForeignKey('Accounts.AccID'))
