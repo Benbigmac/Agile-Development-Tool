@@ -1,0 +1,68 @@
+{%extends "baseTemp.html"%}
+{%block body%}
+<div class="container">
+<center>
+	<form action="" method="post" novalidate>
+			 {{ form.hidden_tag() }}
+			 <p>
+					 {{ form.titleOfProject.label }}<br>
+					 {{ form.titleOfProject(size=32) }}
+			 </p>
+			 <p>
+					 {{ form.team.label }}<br>
+					 {{ form.team(size=32) }}
+			 </p>
+
+       <p>
+          {{ form.description.label }}<br>
+          {{ form.description(size=32) }}
+      </p>
+
+      <p>
+          {{ form.taskGoals.label }}<br>
+          {{ form.taskGoals(size=32) }}
+      </p>
+
+
+	 </form>
+
+  <div class="wrap-input100 validate-input m-b-10">
+			{{form.titleOfProject}}
+      <span class="focus-input100"></span>
+      <span class="symbol-input100">
+          <i class="fa fa-user"></i>
+      </span>
+  </div>
+
+  <div class="wrap-input100 validate-input m-b-10" >
+      {{form.team}}
+      <span class="focus-input100"></span>
+      <span class="symbol-input100">
+          <i class="fa fa-lock"></i>
+      </span>
+  </div>
+
+  <div class="wrap-input100 validate-input m-b-10">
+			{{form.description}}
+      <span class="focus-input100"></span>
+      <span class="symbol-input100">
+          <i class="fa fa-user"></i>
+      </span>
+  </div>
+
+  <div class="wrap-input100 validate-input m-b-10" >
+      {{form.taskGoals}}
+      <span class="focus-input100"></span>
+      <span class="symbol-input100">
+          <i class="fa fa-lock"></i>
+      </span>
+  </div>
+
+  <div class="container-login100-form-btn p-t-10">
+    {{form.submit}}
+  </div>
+
+</center>
+
+</div>
+{% endblock%}
