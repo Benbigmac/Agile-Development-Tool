@@ -5,3 +5,4 @@ class Config(object):
         SQLALCHEMY_DATABASE_URI = 'mssql+pyodbc://SEW-DESK/Firescrum'
         SQLALCHEMY_TRACK_MODIFICATIONS = False
         
+
