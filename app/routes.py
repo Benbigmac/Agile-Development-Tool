@@ -47,7 +47,10 @@ def createProj():
         return redirect(url_for('projectList'))
     return render_template("createProject.html",form=form)
 
-
+@app.route('/DBTEST')
+def projectList():
+    projList=ListOPRojects#change List to outputresults from DB
+    return render_template("dbtest.html",projectList=projList, username="Ben")
 
 @app.errorhandler(404)
 def not_found(error):
