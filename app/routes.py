@@ -48,7 +48,7 @@ def createProj():
     return render_template("createProject.html",form=form)
 
 @app.route('/DBTEST')
-def projectList():
+def dbTest():
     projList=ListOPRojects#change List to outputresults from DB
     return render_template("dbtest.html",projectList=projList, username="Ben")
 
