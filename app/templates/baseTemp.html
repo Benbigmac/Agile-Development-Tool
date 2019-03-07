@@ -41,9 +41,9 @@
           </li>
 
         </ul>
-        {% if  session.logged_in %}
+        {% if  current_user %}
         <span class="navbar-text">
-            Hello {{username}}
+            Hello {{current_user}} <button href="/logOut">Log Out?</button>
         </span>
         {% else %}
         <span class="navbar-text">

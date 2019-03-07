@@ -12,7 +12,7 @@ def home():
     if request.method == 'POST':
         return redirect(url_for('projectList'))
     else:
-        return render_template("index.html",title="FireScrum",form=form,username="Ben")
+        return render_template("index.html",title="FireScrum",form=form,current_user=current_user)
 
 @app.route('/signUp')
 def signUpPage():
@@ -29,7 +29,7 @@ def login():
         #    g.user = current_user.username
         return redirect(url_for('projectList', current_user= current_user))
     else:
-        return render_template('signIn.html', title='Sign In', form=form,username="Ben")
+        return render_template('signIn.html', title='Sign In', form=form,current_user=current_user)
 
 @app.route('/about')
 def about():
@@ -38,11 +38,11 @@ def about():
 @app.route('/<current_user>/projects')
 def projectList(current_user):
     projList=ListOPRojects
-    return render_template("projects.html",projectList=projList, username="Ben")
+    return render_template("projects.html",projectList=projList, current_user=current_user)
 
 @app.route('/<current_user>/projects/<projectName>')
 def projectSplash(current_user,projectName):
-    return render_template("projectDash.html", username=current_user)
+    return render_template("projectDash.html", current_user=current_user)
 
 @app.route('/<current_user>/createProject', methods=['GET', 'POST'])
 def createProj(current_user):
@@ -58,7 +58,12 @@ def createProj(current_user):
 @app.route('/DBTEST')
 def dbTesrt():
     projList=ListOPRojects#change List to outputresults from DB
-    return render_template("projects.html",projectList=projList, username="Ben")
+    return render_template("projects.html",projectList=projList, current_user=current_user)
+
+@app.route('/logOut')
+def logOut():
+    current_user=""
+    return render_template("projects.html",projectList=projList, current_user=current_user)
 
 @app.errorhandler(404)
 def not_found(error):
