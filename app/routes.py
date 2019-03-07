@@ -36,6 +36,14 @@ def projectList():
     projList=ListOPRojects
     return render_template("projects.html",projectList=projList, username="Ben")
 
+@app.route('/annoucements')
+def announcements():
+    return render_template("announcements.html")
+
+@app.route('/discussionboard')
+def discussionboard():
+    return render_template("discussionboard.html")
+
 @app.route('/createProject', methods=['GET', 'POST'])
 def createProj():
     form = ProjectForm()
