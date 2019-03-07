@@ -23,6 +23,8 @@ def signUpPage():
 def login():
     form = LoginForm()
     if request.method == 'POST':
+        #if current_user.is_authenticated():
+        #    g.user = current_user.username
         return redirect(url_for('projectList'))
     else:
         return render_template('signIn.html', title='Sign In', form=form,username="Ben")
@@ -36,6 +38,11 @@ def projectList():
     projList=ListOPRojects
     return render_template("projects.html",projectList=projList, username="Ben")
 
+@app.route('/projects/<projectName>')
+def projectSplash(projectName):
+
+    return render_template("projectDash.html", username="Ben")
+
 @app.route('/createProject', methods=['GET', 'POST'])
 def createProj():
     form = ProjectForm()
@@ -48,7 +55,7 @@ def createProj():
     return render_template("createProject.html",form=form)
 
 @app.route('/DBTEST')
-def projectList():
+def dbTesrt():
     projList=ListOPRojects#change List to outputresults from DB
     return render_template("projects.html",projectList=projList, username="Ben")
 
