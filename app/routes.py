@@ -55,9 +55,9 @@ def createProj():
     return render_template("createProject.html",form=form)
 
 @app.route('/DBTEST')
-def dbTesrt():
+def dbTest():
     projList=ListOPRojects#change List to outputresults from DB
-    return render_template("projects.html",projectList=projList, username="Ben")
+    return render_template("dbtest.html",projectList=projList, username="Ben")
 
 @app.errorhandler(404)
 def not_found(error):
