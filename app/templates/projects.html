@@ -9,7 +9,7 @@
      <div class="card-content white-text">
      </div>
      <div class="card-action">
-       <a href="/createProject">Create a new project</a>
+       <a href="/{{current_user}}/createProject">Create a new project</a>
      </div>
    </div>
  </div>
@@ -28,7 +28,7 @@
         <p>{{ proj.description }}</p>
       </div>
       <div class="card-action">
-        <a href="/{{ proj.name }}">Open</a>
+        <a href="/{{username}}/projects/{{ proj.name }}">Open</a>
 
       </div>
     </div>
