@@ -1,9 +1,18 @@
 {% extends "baseTemp.html" %}
 {% block body %}
 
-<div class="sidebar bar-block" style="width:25%">
-  <a href="#" class="bar-item button">Link 1</a>
-</div>
+<div id="sidebar">
+  <div class="toggle-btn"
+    onClick="document.getElementById('sidebar').classList.toggle('active');">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+    <ul>
+      <li>Create Task</li>
+    </ul>
+  </div>
+
 
 <body><center>
 
