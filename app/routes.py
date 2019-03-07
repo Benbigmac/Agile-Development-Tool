@@ -40,6 +40,7 @@ def projectList(current_user):
     projList=ListOPRojects
     return render_template("projects.html",projectList=projList, username="Ben")
 
+
 @app.route('/<current_user>/projects/<projectName>')
 def projectSplash(current_user,projectName):
     return render_template("projectDash.html", username=current_user)
