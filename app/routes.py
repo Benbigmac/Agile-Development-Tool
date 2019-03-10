@@ -44,6 +44,7 @@ def projectList(current_user):
 def projectSplash(current_user,projectName):
     return render_template("projectDash.html", current_user=current_user)
 
+
 @app.route('/<current_user>/createProject', methods=['GET', 'POST'])
 def createProj(current_user):
     form = ProjectForm()
@@ -58,6 +59,12 @@ def createProj(current_user):
 @app.route('/DBTEST')
 def dbTesrt():
     projList=ListOPRojects#change List to outputresults from DB
+
+    return render_template("projects.html",projectList=projList, current_user=current_user)
+
+@app.route('/logOut')
+def logOut():
+    current_user=""
     return render_template("projects.html",projectList=projList, current_user=current_user)
 
 @app.route('/logOut')
