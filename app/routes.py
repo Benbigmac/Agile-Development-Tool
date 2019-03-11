@@ -62,15 +62,11 @@ def dbTesrt():
 
     return render_template("projects.html",projectList=projList, current_user=current_user)
 
-@app.route('/logOut')
-def logOut():
-    current_user=""
-    return render_template("projects.html",projectList=projList, current_user=current_user)
 
 @app.route('/logOut')
 def logOut():
     current_user=""
-    return render_template("projects.html",projectList=projList, current_user=current_user)
+    return  redirect(url_for('home'))
 
 @app.errorhandler(404)
 def not_found(error):
