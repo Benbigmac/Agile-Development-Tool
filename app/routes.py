@@ -59,13 +59,13 @@ def createProj(current_user):
 
 @app.route('/DBTEST')
 def dbTest():
-    projList=ListOPRojects#change List to outputresults from DB
     p = Projects(name='Firescrum', ProjectID=1, description='scrum stuff', start_date = datetime.datetime.now() )
     db.session.add(p)
     db.session.commit()
-    ListOPRojects = Projects.query.all()
-    for p in ListOPRojects:
+    ListOProjects = Projects.query.all()
+    for p in ListOProjects:
         print(p.name, p.ProjectID)
+    projList = ListOProjects
     return render_template("projects.html",projectList=projList, current_user=current_user)
 
 @app.route('/logOut')
