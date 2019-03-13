@@ -2,6 +2,7 @@ from flask import render_template, flash, redirect, url_for, request,session
 from app import app
 from app.forms import LoginForm, RegistrationForm, ProjectForm
 import json
+from models import 
 
 current_user=""
 ListOPRojects=[{"name":"FireScrum","description":"IT's WHAT YOU're USING!"},{"name":"D&D Web App","description":"We're working on stuff here"}]
@@ -18,7 +19,6 @@ def home():
 def signUpPage():
     form = RegistrationForm()
     return render_template("signUp.html",form=form)
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -44,7 +44,6 @@ def projectList(current_user):
 def projectSplash(current_user,projectName):
     return render_template("projectDash.html", current_user=current_user)
 
-
 @app.route('/<current_user>/createProject', methods=['GET', 'POST'])
 def createProj(current_user):
     form = ProjectForm()
@@ -61,7 +60,6 @@ def dbTesrt():
     projList=ListOPRojects#change List to outputresults from DB
 
     return render_template("projects.html",projectList=projList, current_user=current_user)
-
 
 @app.route('/logOut')
 def logOut():
