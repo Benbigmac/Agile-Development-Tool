@@ -2,7 +2,9 @@ from flask import render_template, flash, redirect, url_for, request,session
 from app import app
 from app.forms import LoginForm, RegistrationForm, ProjectForm
 import json
-from models import 
+from app import db
+from app.models import Accounts, Projects, Stories, Tasks, Userprojects
+from datetime import datetime
 
 current_user=""
 ListOPRojects=[{"name":"FireScrum","description":"IT's WHAT YOU're USING!"},{"name":"D&D Web App","description":"We're working on stuff here"}]
@@ -56,9 +58,14 @@ def createProj(current_user):
     return render_template("createProject.html",form=form)
 
 @app.route('/DBTEST')
-def dbTesrt():
+def dbTest():
     projList=ListOPRojects#change List to outputresults from DB
-
+    p = Projects(name='Firescrum', ProjectID=1, description='scrum stuff', start_date = datetime.datetime.now() )
+    db.session.add(p)
+    db.session.commit()
+    ListOPRojects = Projects.query.all()
+    for p in ListOPRojects:
+        print(p.name, p.ProjectID)
     return render_template("projects.html",projectList=projList, current_user=current_user)
 
 @app.route('/logOut')
