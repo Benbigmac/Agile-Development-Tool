@@ -59,14 +59,15 @@ def createProj(current_user):
 
 @app.route('/DBTEST')
 def dbTest():
-    p = Projects(name='Firescrum', ProjectID=1, description='scrum stuff', start_date = datetime.datetime.now() )
-    db.session.add(p)
-    db.session.commit()
-    ListOProjects = Projects.query.all()
-    for p in ListOProjects:
-        print(p.name, p.ProjectID)
-    projList = ListOProjects
-    return render_template("projects.html",projectList=projList, current_user=current_user)
+    p = Projects(name='Firescrum',description='scrum stuff',start_date=datetime.now())
+    print(p)
+    # db.session.add(p)
+    # db.session.commit()
+    # ListOProjects = Projects.query.all()
+    # for p in ListOProjects:
+    #     print(p.name, p.ProjectID)
+    # projList = ListOProjects
+    # return render_template("projects.html",projectList=projList, current_user=current_user)
 
 @app.route('/logOut')
 def logOut():
