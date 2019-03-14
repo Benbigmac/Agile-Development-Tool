@@ -1,0 +1,90 @@
+{% extends "baseTemp.html" %}
+{% block body %}
+<body>
+
+  <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
+      <aside class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
+      <div class="mdc-drawer__content">
+        <nav class="mdc-list">
+          <a class="mdc-list-item mdc-list-item--activated"id="inbox"  href="#" aria-selected="true">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">Task Management</i>
+            <span class="mdc-list-item__text">Task</span>
+          </a>
+          <a class="mdc-list-item" id="3rd" href="#">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">Profile</i>
+            <span class="mdc-list-item__text">Account Settings</span>
+          </a>
+          <a class="mdc-list-item" id="draft" href="#">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">Board</i>
+            <span class="mdc-list-item__text">Discussion Board</span>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- necessary for modal drawer -->
+    <div class="mdc-drawer-scrim"></div>
+
+
+    <!--  -->
+    <header class="mdc-top-app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+          <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">Create a Task</a>
+          <span class="mdc-top-app-bar__title">Your Project</span>
+        </section>
+      </div>
+    </header>
+    <div class="mdc-top-app-bar--fixed-adjust"><div>
+
+
+        </div></div>
+      <div id='content'></div>
+
+
+    <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
+
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+
+
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+
+
+    <script type="text/javascript">
+    // wait til the document is ready
+    $(document).ready(function () {
+      // initializes all elements with the data-mdc-auto-init attribute
+      window.mdc.autoInit();
+      // creating a var reference just to save code later
+      var drawer = $("aside")[0].MDCDrawer;
+      // when menu icon is click, toggle drawer open property
+      $(".mdc-top-app-bar__navigation-icon").on("click", function(){
+        drawer.open = !drawer.open;
+      });
+      // could/should/would add an event handler for the drawer items;  click should close the drawer
+
+          $('#draft').click(function(){
+
+        $("#content").load("createTask.html");
+           drawer.open = !drawer.open;
+          });
+      $('#inbox').click(function(){
+
+        $("#content").load("accountSettings.html");
+       drawer.open = !drawer.open;
+      });
+        $('#3rd').click(function(){
+
+        $("#content").load("discussionBoard.html");
+       drawer.open = !drawer.open;
+      });
+    })
+
+    </script>
+</body>
+{% endblock %}
