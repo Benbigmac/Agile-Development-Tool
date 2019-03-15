@@ -6,21 +6,24 @@
       <aside class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
       <div class="mdc-drawer__content">
         <nav class="mdc-list">
-          <a class="mdc-list-item mdc-list-item--activated"id="inbox"  href="#" aria-selected="true">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">Task Management</i>
+
+          <span class="open-slide">
+            <a href="#" onclick="openSlideMenu()">
+              <svg width="30" height="30">
+                <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+                <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+                <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+            </svg>
           </a>
-          <a class="mdc-list-item" id="3rd" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">Current Sprint</i>
-          </a>
-          <a class="mdc-list-item" id="3rd" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">Product Backlog</i>
-          </a>
-          <a class="mdc-list-item" id="draft" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">Discussion Board</i>
-          </a>
-          <a class="mdc-list-item" id="3rd" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">Account</i>
-          </a>
+        </span>
+
+            <li><a href="#">Task Management</a></li>
+            <li><a href="#">Current Sprint</a></li>
+            <li><a href="#">Product Backlog</a></li>
+            <li><a href="#">Discussion Board</a></li>
+            <li><a href="#">Account Settings</a></li>
+
+
         </nav>
       </div>
     </aside>
@@ -29,19 +32,10 @@
     <div class="mdc-drawer-scrim"></div>
 
 
-    <!--  -->
-    <header class="mdc-top-app-bar">
-      <div class="mdc-top-app-bar__row">
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-
           <center><h1><span class="mdc-top-app-bar__title">Your Project</span></h1></center>
-        </section>
-      </div>
-    </header>
-    <div class="mdc-top-app-bar--fixed-adjust"><div>
 
 
-        </div></div>
+
       <div id='content'></div>
 
 
