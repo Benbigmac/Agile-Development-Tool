@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, url_for, request,session
 from app import app
 from app.forms import LoginForm, RegistrationForm, ProjectForm
-import json
+import json, sys
 
 current_user=""
 ListOPRojects=[{"name":"FireScrum","description":"IT's WHAT YOU're USING!"},{"name":"D&D Web App","description":"We're working on stuff here"}]
@@ -58,7 +58,7 @@ def createProj(current_user):
 def dbTest():
 
     filein = open('C:/Users/swald/group7/app/data/account.json', 'r')
-    print (filein)
+    print (filein, file=sys.stdout)
     # projList = json.loads(filein)
     # print(projList)
     # db.session.add(p)
