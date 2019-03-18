@@ -2,9 +2,6 @@ from flask import render_template, flash, redirect, url_for, request,session
 from app import app
 from app.forms import LoginForm, RegistrationForm, ProjectForm
 import json
-from app import db
-from app.models import Accounts, Projects, Stories, Tasks, Userprojects
-from datetime import datetime
 
 current_user=""
 ListOPRojects=[{"name":"FireScrum","description":"IT's WHAT YOU're USING!"},{"name":"D&D Web App","description":"We're working on stuff here"}]
@@ -59,15 +56,18 @@ def createProj(current_user):
 
 @app.route('/DBTEST')
 def dbTest():
-    p = Projects(name='Firescrum',description='scrum stuff',start_date=datetime.now())
-    print(p)
+
+    filein = open('C:/Users/swald/group7/app/data/account.json', 'r')
+    print (filein)
+    # projList = json.loads(filein)
+    # print(projList)
     # db.session.add(p)
     # db.session.commit()
     # ListOProjects = Projects.query.all()
     # for p in ListOProjects:
     #     print(p.name, p.ProjectID)
     # projList = ListOProjects
-    # return render_template("projects.html",projectList=projList, current_user=current_user)
+    return render_template("projects.html",projectList=filein, current_user=current_user)
 
 @app.route('/logOut')
 def logOut():
