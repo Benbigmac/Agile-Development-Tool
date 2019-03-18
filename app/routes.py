@@ -4,7 +4,6 @@ from app.forms import LoginForm, RegistrationForm, ProjectForm
 import json, sys
 
 current_user=""
-ListOPRojects=[{"name":"FireScrum","description":"IT's WHAT YOU're USING!"},{"name":"D&D Web App","description":"We're working on stuff here"}]
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -57,9 +56,10 @@ def createProj(current_user):
 @app.route('/DBTEST')
 def dbTest():
 
-    filein = open('C:/Users/swald/group7/app/data/account.json', 'r')
-    print (filein, file=sys.stdout)
-    # projList = json.loads(filein)
+    filein = open('C:/Users/swald/group7/app/data/projects.json', 'r')
+    print (filein.read(), file=sys.stdout)
+    filein.seek(0,0)
+    projList = json.loads(filein.read())
     # print(projList)
     # db.session.add(p)
     # db.session.commit()
@@ -67,7 +67,7 @@ def dbTest():
     # for p in ListOProjects:
     #     print(p.name, p.ProjectID)
     # projList = ListOProjects
-    return render_template("projects.html",projectList=filein, current_user=current_user)
+    return render_template("projects.html",projectList=projList, current_user=current_user)
 
 @app.route('/logOut')
 def logOut():
