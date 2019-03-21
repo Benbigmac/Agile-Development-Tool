@@ -4,7 +4,8 @@ from app.forms import LoginForm, RegistrationForm, ProjectForm
 import json, sys
 
 current_user=""
-
+dataString='C:/Users/benma/Desktop/cs442/code/v2/group7/app/data/'
+#dataString='C:/Users/swald/group7/app/data/'
 @app.route('/', methods=['GET', 'POST'])
 def home():
     form = LoginForm()
@@ -35,7 +36,10 @@ def about():
 
 @app.route('/<current_user>/projects')
 def projectList(current_user):
-    projList=ListOPRojects
+    filein = open((dataString+'projects.json'), 'r')
+    print (filein.read(), file=sys.stdout)
+    filein.seek(0,0)
+    projList = json.loads(filein.read())
     return render_template("projects.html",projectList=projList, current_user=current_user)
 
 @app.route('/<current_user>/projects/<projectName>')
