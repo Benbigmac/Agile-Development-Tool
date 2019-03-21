@@ -1,10 +1,9 @@
 from flask import render_template, flash, redirect, url_for, request,session
 from app import app
 from app.forms import LoginForm, RegistrationForm, ProjectForm
-import json
+import json, sys
 
 current_user=""
-ListOPRojects=[{"name":"FireScrum","description":"IT's WHAT YOU're USING!"},{"name":"D&D Web App","description":"We're working on stuff here"}]
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -18,7 +17,6 @@ def home():
 def signUpPage():
     form = RegistrationForm()
     return render_template("signUp.html",form=form)
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -44,7 +42,6 @@ def projectList(current_user):
 def projectSplash(current_user,projectName):
     return render_template("projectDash.html", current_user=current_user)
 
-
 @app.route('/<current_user>/createProject', methods=['GET', 'POST'])
 def createProj(current_user):
     form = ProjectForm()
@@ -57,11 +54,20 @@ def createProj(current_user):
     return render_template("createProject.html",form=form)
 
 @app.route('/DBTEST')
-def dbTesrt():
-    projList=ListOPRojects#change List to outputresults from DB
+def dbTest():
 
+    filein = open('C:/Users/swald/group7/app/data/projects.json', 'r')
+    print (filein.read(), file=sys.stdout)
+    filein.seek(0,0)
+    projList = json.loads(filein.read())
+    # print(projList)
+    # db.session.add(p)
+    # db.session.commit()
+    # ListOProjects = Projects.query.all()
+    # for p in ListOProjects:
+    #     print(p.name, p.ProjectID)
+    # projList = ListOProjects
     return render_template("projects.html",projectList=projList, current_user=current_user)
-
 
 @app.route('/logOut')
 def logOut():

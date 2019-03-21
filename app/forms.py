@@ -10,7 +10,6 @@ class LoginForm(FlaskForm):
         submit = SubmitField('Sign In')
 
 
-
 class RegistrationForm(FlaskForm):
     username = StringField('UserName')
     password =StringField('Password')
@@ -27,3 +26,9 @@ class ProjectForm(FlaskForm):
     description = StringField('description')
     taskGoals = StringField('Goals of Project')
     submit = SubmitField('Create Project')
+
+
+class TaskForm(FlaskForm):
+    taskGoal = StringField('State the goal')
+    storyPoint = StringField('Story Point')
+    assignedTo = StringField('Assigned To')
