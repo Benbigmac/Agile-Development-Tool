@@ -50,10 +50,24 @@ def projectSplash(current_user,projectName):
 def createProj(current_user):
     form = ProjectForm()
     if request.method == 'POST':
+        filein = open(dataString+'projects.json', 'r')
+        projList = json.loads(filein.read())
+        filein.close()
+        print(projList, file=sys.stdout)
+
         projectName=request.form["titleOfProject"]
         description=request.form["description"]
+
+        print(projectName)
+        print(description)
+
         newProj={"name":projectName,"description":description}
-        ListOPRojects.append(newProj)
+        projList.append(newProj)
+        print(projList)
+
+        with open(dataString+'projects.json','w') as fileout:
+            fileout.write(json.dumps(projList, indent=2))
+        
         return redirect(url_for('projectList', current_user= current_user))
     return render_template("createProject.html",form=form)
 
