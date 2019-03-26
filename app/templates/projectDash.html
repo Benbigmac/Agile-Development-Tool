@@ -1,88 +1,120 @@
 {% extends "baseTemp.html" %}
 {% block body %}
-<body>
 
- <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
-     <aside class="mdc-drawer mdc-drawer--modal">
-     <!---div class="mdc-drawer__content"-->
-     <div class="ui left demo vertical inverted sidebar labeled icon menu">
-       <nav class="mdc-list">
-
-         <span class="open-slide">
-           <a href="#" onclick="openSlideMenu()">
-             <svg width="30" height="30">
-               <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
-               <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
-               <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
-           </svg>
-         </a>
-       </span>
-
-           <li><a href="#">Task Management</a></li>
-           <li><a href="#">Current Sprint</a></li>
-           <li><a href="#">Product Backlog</a></li>
-           <li><a href="#">Discussion Board</a></li>
-           <li><a href="#">Account Settings</a></li>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
-       </nav>
-     </div>
-   </aside>
+  </head>
+  <body>
 
-   <!-- necessary for modal drawer -->
-   <div class="mdc-drawer-scrim"></div>
+      <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
+      <aside class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
+      <div class="mdc-drawer__content">
+        <nav class="mdc-list">
+          <a class="mdc-list-item mdc-list-item--activated"id="inbox"  href="#" aria-selected="true">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
+            <span class="mdc-list-item__text">Getting Started</span>
+          </a>
+          <a class="mdc-list-item" id="3rd" href="#">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+            <span class="mdc-list-item__text">Tasks</span>
+          </a>
+          <a class="mdc-list-item" id="3rd" href="#">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+            <span class="mdc-list-item__text">Current Sprint</span>
+          </a>
+          <a class="mdc-list-item" id="3rd" href="#">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+            <span class="mdc-list-item__text">Product Backlog</span>
+          </a>
+          <a class="mdc-list-item" id="3rd" href="#">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+            <span class="mdc-list-item__text">Discussion Board</span>
+          </a>
+          <a class="mdc-list-item" id="3rd" href="#">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+            <span class="mdc-list-item__text">Account Settings</span>
+          </a>
+
+        </nav>
+      </div>
+    </aside>
+
+    <!-- necessary for modal drawer -->
+    <div class="mdc-drawer-scrim"></div>
 
 
-         <center><h1><span class="mdc-top-app-bar__title">Your Project</span></h1></center>
+    <!--  -->
+    <header class="mdc-top-app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+          <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+          <span class="mdc-top-app-bar__title">Your Project</span>
+        </section>
+      </div>
+    </header>
+    <div class="mdc-top-app-bar--fixed-adjust"><div>
 
 
+        </div></div>
+      <div id='content'></div>
 
-     <div id='content'></div>
 
-
-   <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
+    <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
 
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 
 
-   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 
 
-   <script type="text/javascript">
-   // wait til the document is ready
-   $(document).ready(function () {
-     // initializes all elements with the data-mdc-auto-init attribute
-     window.mdc.autoInit();
-     // creating a var reference just to save code later
-     var drawer = $("aside")[0].MDCDrawer;
-     // when menu icon is click, toggle drawer open property
-     $(".mdc-top-app-bar__navigation-icon").on("click", function(){
+    <script type="text/javascript">
+    // wait til the document is ready
+    $(document).ready(function () {
+      // initializes all elements with the data-mdc-auto-init attribute
+      window.mdc.autoInit();
+      // creating a var reference just to save code later
+      var drawer = $("aside")[0].MDCDrawer;
+      // when menu icon is click, toggle drawer open property
+      $(".mdc-top-app-bar__navigation-icon").on("click", function(){
+        drawer.open = !drawer.open;
+      });
+      // could/should/would add an event handler for the drawer items;  click should close the drawer
+
+          $('#draft').click(function(){
+
+        $("#content").load("modals.html");
+           drawer.open = !drawer.open;
+          });
+      $('#inbox').click(function(){
+
+        $("#content").load("popUp.html");
        drawer.open = !drawer.open;
-     });
-     // could/should/would add an event handler for the drawer items;  click should close the drawer
+      });
+        $('#3rd').click(function(){
 
-         $('#draft').click(function(){
+        $("#content").load("randomHtml.html");
+       drawer.open = !drawer.open;
+      });
+    })
 
-       $("#content").load("createTask.html");
-          drawer.open = !drawer.open;
-         });
-     $('#inbox').click(function(){
+    </script>
 
-       $("#content").load("accountSettings.html");
-      drawer.open = !drawer.open;
-     });
-       $('#3rd').click(function(){
-
-       $("#content").load("discussionBoard.html");
-      drawer.open = !drawer.open;
-     });
-   })
-
-   </script>
-</body>
+  </body>
+</html>
 {% endblock %}
