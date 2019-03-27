@@ -1,12 +1,10 @@
-{% extends "baseTemp.html" %}
-{% block body %}
+
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -18,30 +16,30 @@
   <body>
 
       <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
-      <aside class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
-      <div class="mdc-drawer__content">
+      <aside class="mdc-drawer mdc-drawer--modal " data-mdc-auto-init="MDCDrawer">
+      <div class="mdc-drawer__content mdc-drawer-surface-fill-color(gray)">
         <nav class="mdc-list">
           <a class="mdc-list-item mdc-list-item--activated"id="inbox"  href="#" aria-selected="true">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
             <span class="mdc-list-item__text">Getting Started</span>
           </a>
-          <a class="mdc-list-item" id="3rd" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+          <a class="mdc-list-item" id="3rd" href="createTask.html">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">note_add</i>
             <span class="mdc-list-item__text">Tasks</span>
           </a>
-          <a class="mdc-list-item" id="3rd" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+          <a class="mdc-list-item" id="3rd" href="sprints.html">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">library_add</i>
             <span class="mdc-list-item__text">Current Sprint</span>
           </a>
-          <a class="mdc-list-item" id="3rd" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+          <a class="mdc-list-item" id="3rd" href="backlog.html">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">add_to_queue</i>
             <span class="mdc-list-item__text">Product Backlog</span>
           </a>
-          <a class="mdc-list-item" id="3rd" href="#">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+          <a class="mdc-list-item" id="3rd" href="discussionBoard.html">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">add_comment</i>
             <span class="mdc-list-item__text">Discussion Board</span>
           </a>
-          <a class="mdc-list-item" id="3rd" href="#">
+          <a class="mdc-list-item" id="3rd" href="accountSettings.html">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
             <span class="mdc-list-item__text">Account Settings</span>
           </a>
@@ -59,7 +57,7 @@
       <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
           <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
-          <span class="mdc-top-app-bar__title">Your Project</span>
+          <span class="mdc-top-app-bar__title">Welcome To Your Project Page</span>
         </section>
       </div>
     </header>
@@ -67,13 +65,15 @@
 
 
         </div></div>
-      <div id='content'></div>
+      <div id='content'>
+          <h1> Under Construction </h1>
+
+
+      </div>
 
 
     <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
 
-
-<!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -117,4 +117,3 @@
 
   </body>
 </html>
-{% endblock %}
