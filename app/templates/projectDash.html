@@ -19,27 +19,27 @@
       <aside class="mdc-drawer mdc-drawer--modal " data-mdc-auto-init="MDCDrawer">
       <div class="mdc-drawer__content mdc-drawer-surface-fill-color(gray)">
         <nav class="mdc-list">
-          <a class="mdc-list-item mdc-list-item--activated"id="inbox"  href="#" aria-selected="true">
+          <a class="mdc-list-item mdc-list-item--activated" aria-selected="true">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
             <span class="mdc-list-item__text">Getting Started</span>
           </a>
-          <a class="mdc-list-item" id="3rd" href="createTask.html">
+          <a class="mdc-list-item" id="content1" href="createTask.html">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">note_add</i>
             <span class="mdc-list-item__text">Tasks</span>
           </a>
-          <a class="mdc-list-item" id="3rd" href="sprints.html">
+          <a class="mdc-list-item" id="content2" href="currentSprint.html">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">library_add</i>
             <span class="mdc-list-item__text">Current Sprint</span>
           </a>
-          <a class="mdc-list-item" id="3rd" href="backlog.html">
+          <a class="mdc-list-item" id="content3" href="backlog.html">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">add_to_queue</i>
             <span class="mdc-list-item__text">Product Backlog</span>
           </a>
-          <a class="mdc-list-item" id="3rd" href="discussionBoard.html">
+          <a class="mdc-list-item" id="content4" href="discussionBoard.html">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">add_comment</i>
             <span class="mdc-list-item__text">Discussion Board</span>
           </a>
-          <a class="mdc-list-item" id="3rd" href="accountSettings.html">
+          <a class="mdc-list-item" id="content5" href="accountSettings.html">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
             <span class="mdc-list-item__text">Account Settings</span>
           </a>
@@ -65,8 +65,29 @@
 
 
         </div></div>
-      <div id='content'>
-          <h1> Under Construction </h1>
+      <div id='content1'>
+        <center><form action="create a form">
+              <br>
+              <br>
+              <label for="Tname">Task Name</label>
+              <input type="text" id="Tname" name="firstname" placeholder="This task"><br><br>
+
+              <label for="StoryPoint">Story Point</label>
+              <input type="text" id="SP" name="SP" placeholder="1, 3, 5,..."><br><br>
+
+              <label for="Team">Team</label>
+              <select id="team" name="ID">
+                <option value="Team1">Developer</option>
+                <option value="Team2">Project Manager</option>
+                <option value="Team3">Scrum Master</option>
+              </select><br><br>
+
+              <label for="subject">More Notes</label><br>
+              <textarea id="subject" name="subject" placeholder="To-do..." style="height:300px weight:500px"></textarea><br>
+
+              <input type="submit" value="Submit">
+
+          </form></center>
 
 
       </div>
@@ -96,19 +117,19 @@
       });
       // could/should/would add an event handler for the drawer items;  click should close the drawer
 
-          $('#draft').click(function(){
+        $('#draft').click(function(){
 
-        $("#content").load("modals.html");
+        $("#content1").load("createTask.html");
            drawer.open = !drawer.open;
           });
       $('#inbox').click(function(){
 
-        $("#content").load("popUp.html");
+        $("#content2").load("currentSprint.html");
        drawer.open = !drawer.open;
       });
-        $('#3rd').click(function(){
+        $('#content').click(function(){
 
-        $("#content").load("randomHtml.html");
+        $("#content3").load("productBacklog.html");
        drawer.open = !drawer.open;
       });
     })
