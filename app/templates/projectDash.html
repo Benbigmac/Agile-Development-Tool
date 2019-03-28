@@ -1,28 +1,48 @@
-{% extends "baseTemp.html" %}
-{% block body %}
-<body>
 
-  <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
-      <aside class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
-      <div class="mdc-drawer__content">
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+  </head>
+  <body>
+
+      <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
+      <aside class="mdc-drawer mdc-drawer--modal " data-mdc-auto-init="MDCDrawer">
+      <div class="mdc-drawer__content mdc-drawer-surface-fill-color(gray)">
         <nav class="mdc-list">
-
-          <span class="open-slide">
-            <a href="#" onclick="openSlideMenu()">
-              <svg width="30" height="30">
-                <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
-                <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
-                <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
-            </svg>
+          <a class="mdc-list-item mdc-list-item--activated" aria-selected="true">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
+            <span class="mdc-list-item__text">Getting Started</span>
           </a>
-        </span>
-
-            <li><a href="#">Task Management</a></li>
-            <li><a href="#">Current Sprint</a></li>
-            <li><a href="#">Product Backlog</a></li>
-            <li><a href="#">Discussion Board</a></li>
-            <li><a href="#">Account Settings</a></li>
-
+          <a class="mdc-list-item" id="content1" href="createTask.html">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">note_add</i>
+            <span class="mdc-list-item__text">Tasks</span>
+          </a>
+          <a class="mdc-list-item" id="content2" href="currentSprint.html">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">library_add</i>
+            <span class="mdc-list-item__text">Current Sprint</span>
+          </a>
+          <a class="mdc-list-item" id="content3" href="backlog.html">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">add_to_queue</i>
+            <span class="mdc-list-item__text">Product Backlog</span>
+          </a>
+          <a class="mdc-list-item" id="content4" href="discussionBoard.html">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">add_comment</i>
+            <span class="mdc-list-item__text">Discussion Board</span>
+          </a>
+          <a class="mdc-list-item" id="content5" href="accountSettings.html">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+            <span class="mdc-list-item__text">Account Settings</span>
+          </a>
 
         </nav>
       </div>
@@ -32,17 +52,49 @@
     <div class="mdc-drawer-scrim"></div>
 
 
-          <center><h1><span class="mdc-top-app-bar__title">Your Project</span></h1></center>
+    <!--  -->
+    <header class="mdc-top-app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+          <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+          <span class="mdc-top-app-bar__title">Welcome To Your Project Page</span>
+        </section>
+      </div>
+    </header>
+    <div class="mdc-top-app-bar--fixed-adjust"><div>
 
 
+        </div></div>
+      <div id='content1'>
+        <center><form action="create a form">
+              <br>
+              <br>
+              <label for="Tname">Task Name</label>
+              <input type="text" id="Tname" name="firstname" placeholder="This task"><br><br>
 
-      <div id='content'></div>
+              <label for="StoryPoint">Story Point</label>
+              <input type="text" id="SP" name="SP" placeholder="1, 3, 5,..."><br><br>
+
+              <label for="Team">Team</label>
+              <select id="team" name="ID">
+                <option value="Team1">Developer</option>
+                <option value="Team2">Project Manager</option>
+                <option value="Team3">Scrum Master</option>
+              </select><br><br>
+
+              <label for="subject">More Notes</label><br>
+              <textarea id="subject" name="subject" placeholder="To-do..." style="height:300px weight:500px"></textarea><br>
+
+              <input type="submit" value="Submit">
+
+          </form></center>
+
+
+      </div>
 
 
     <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
 
-
-<!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -65,23 +117,24 @@
       });
       // could/should/would add an event handler for the drawer items;  click should close the drawer
 
-          $('#draft').click(function(){
+        $('#draft').click(function(){
 
-        $("#content").load("createTask.html");
+        $("#content1").load("createTask.html");
            drawer.open = !drawer.open;
           });
       $('#inbox').click(function(){
 
-        $("#content").load("accountSettings.html");
+        $("#content2").load("currentSprint.html");
        drawer.open = !drawer.open;
       });
-        $('#3rd').click(function(){
+        $('#content').click(function(){
 
-        $("#content").load("discussionBoard.html");
+        $("#content3").load("productBacklog.html");
        drawer.open = !drawer.open;
       });
     })
 
     </script>
-</body>
-{% endblock %}
+
+  </body>
+</html>

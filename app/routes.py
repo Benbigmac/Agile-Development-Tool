@@ -4,7 +4,8 @@ from app.forms import LoginForm, RegistrationForm, ProjectForm
 import json, sys
 
 current_user=""
-dataString='C:/Users/benma/Desktop/cs442/code/v2/group7/app/data/'
+dataString='/Users/lzhou/Documents/group7/app/data/'
+#dataString='C:/Users/benma/Desktop/cs442/code/v2/group7/app/data/'
 #dataString='C:/Users/swald/group7/app/data/'
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -50,10 +51,24 @@ def projectSplash(current_user,projectName):
 def createProj(current_user):
     form = ProjectForm()
     if request.method == 'POST':
+        filein = open(dataString+'projects.json', 'r')
+        projList = json.loads(filein.read())
+        filein.close()
+        print(projList, file=sys.stdout)
+
         projectName=request.form["titleOfProject"]
         description=request.form["description"]
+
+        print(projectName)
+        print(description)
+
         newProj={"name":projectName,"description":description}
-        ListOPRojects.append(newProj)
+        projList.append(newProj)
+        print(projList)
+
+        with open(dataString+'projects.json','w') as fileout:
+            fileout.write(json.dumps(projList, indent=2))
+        
         return redirect(url_for('projectList', current_user= current_user))
     return render_template("createProject.html",form=form)
 
