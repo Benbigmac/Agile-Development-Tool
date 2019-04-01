@@ -4,7 +4,7 @@ from app.forms import LoginForm, RegistrationForm, ProjectForm
 import json, sys
 
 current_user=""
-dataString='/Users/lzhou/Documents/group7/app/data/'
+dataString='/Users/Tian/Documents/UIC/CS/CS442/Repository/group7/app/data/'
 #dataString='C:/Users/benma/Desktop/cs442/code/v2/group7/app/data/'
 #dataString='C:/Users/swald/group7/app/data/'
 @app.route('/', methods=['GET', 'POST'])
@@ -68,7 +68,7 @@ def createProj(current_user):
 
         with open(dataString+'projects.json','w') as fileout:
             fileout.write(json.dumps(projList, indent=2))
-        
+
         return redirect(url_for('projectList', current_user= current_user))
     return render_template("createProject.html",form=form)
 
