@@ -35,6 +35,14 @@ def login():
 def about():
     return render_template("aboutfirescrum.html")
 
+@app.route('/<current_user>/accountSettings', methods=['GET', 'POST'])
+def modifyAccount(current_user):
+    return render_template("accountSettings.html",current_user=current_user)
+
+@app.route('/<current_user>/projects/<projectName>/discussionBoard')
+def talkBox(current_user,projectName):
+    return render_template('discussionBoard.html',current_user=current_user)
+
 @app.route('/<current_user>/projects')
 def projectList(current_user):
     filein = open((dataString+'projects.json'), 'r')
@@ -68,7 +76,7 @@ def createProj(current_user):
 
         with open(dataString+'projects.json','w') as fileout:
             fileout.write(json.dumps(projList, indent=2))
-        
+
         return redirect(url_for('projectList', current_user= current_user))
     return render_template("createProject.html",form=form)
 
