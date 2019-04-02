@@ -17,8 +17,11 @@
     <link rel="icon" href="../static/img/fire.ico">
 
     <!-- Custom CSS -->
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
-
+    <link rel="stylesheet" media="(max-width: 575px)" href="{{ url_for('static', filename='css/extrasmall.css') }}">
+    <link rel="stylesheet" media="(min-width: 576px) and (max-width: 767px)" href="{{ url_for('static', filename='css/smallscreen.css') }}">
+    <link rel="stylesheet" media="(min-width: 768px) and (max-width: 991px)" href="{{ url_for('static', filename='css/mediumscreen.css') }}">
+    <link rel="stylesheet" media="(min-width: 992px) and (max-width: 1199px)" href="{{ url_for('static', filename='css/largescreen.css') }}">
+    <link rel="stylesheet" media="(min-width: 1200px)" href="{{ url_for('static', filename='css/extralarge.css') }}">
 
     {%block title%}<title>
     FireScrum

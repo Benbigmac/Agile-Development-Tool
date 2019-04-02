@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #000000;
+  background-color: #ff8300;
+}
+
+form {
+  text-align: center;
+}
+
+label {
+    width:180px;
+    clear:left;
+    text-align:right;
+}
+
+.container {
+  disaply: grid;
+  grid-template-columns: lfr, 3fr;
+  height: fit-content;
+  width: fit-content;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.form-container h3 {
+  text-align: center;
+}
+
+.form-container button {
+  margin: auto;
+  display: block;
+}
+
+
+.input {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.light-yellow {
+  background-color: #ffff66 !important;
+}
