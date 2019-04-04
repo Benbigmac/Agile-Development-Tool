@@ -20,6 +20,10 @@ label {
     text-align:right;
 }
 
+#logo {
+  height: 85vh;
+}
+
 .container {
   disaply: grid;
   grid-template-columns: lfr, 3fr;

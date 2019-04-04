@@ -20,6 +20,22 @@ label {
     text-align:right;
 }
 
+.navbar {
+  margin-bottom: 15px;
+}
+
+.navbar-toggler {
+  margin: 10px;
+}
+
+.card center h1 {
+  font-size: 3.2rem;
+}
+
+#logo {
+  display: none;
+}
+
 .container {
   disaply: grid;
   grid-template-columns: lfr, 3fr;
