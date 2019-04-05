@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -23,23 +23,29 @@
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
             <span class="mdc-list-item__text">Getting Started</span>
           </a>
+
           <a class="mdc-list-item" id="content1" href="createTask.html">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">note_add</i>
             <span class="mdc-list-item__text">Tasks</span>
-          </a>
-          <a class="mdc-list-item" id="content2" href="currentSprint.html">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">library_add</i>
-            <span class="mdc-list-item__text">Current Sprint</span>
           </a>
           <a class="mdc-list-item" id="content3" href="backlog.html">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">add_to_queue</i>
             <span class="mdc-list-item__text">Product Backlog</span>
           </a>
-          <a class="mdc-list-item" id="content4" href="../{{current_user}}/{{projectName}}/discussionBoard">
+          <a class="mdc-list-item" id="content6" href="backlog.html">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">add_to_queue</i>
+            <span class="mdc-list-item__text">Sprints</span>
+          </a>
+          <a class="mdc-list-item" id="content2" href="currentSprint.html">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">library_add</i>
+            <span class="mdc-list-item__text">Current Sprint</span>
+          </a>
+
+          <a class="mdc-list-item" id="content4" href="../{{proj["name"]}}/discussionBoard">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">add_comment</i>
             <span class="mdc-list-item__text">Discussion Board</span>
           </a>
-          <a class="mdc-list-item" id="content5" href="../{{current_user}}/{{projectName}}/accountSettings">
+          <a class="mdc-list-item" id="content5" href="../{{proj["name"]}}/accountSettings">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
             <span class="mdc-list-item__text">Account Settings</span>
           </a>
@@ -98,7 +104,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
@@ -130,6 +136,9 @@
         $('#content').click(function(){
 
         $("#content3").load("productBacklog.html");
+       drawer.open = !drawer.open;
+      });
+        $("#content6").load("sprints.html");
        drawer.open = !drawer.open;
       });
     })
