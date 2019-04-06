@@ -14,7 +14,7 @@ def home():
         current_user=request.form["username"]
         return redirect(url_for('projectList'),current_user=current_user)
     else:
-        return render_template("index.html",title="FireScrum",form=form,current_user=current_user)
+        return render_template("index.html",title="FireScrum",form=form,current_user="")
 
 @app.route('/signUp')
 def signUpPage():
@@ -40,10 +40,15 @@ def about():
 def modifyAccount(current_user,projectName):
     return render_template("accountSettings.html",current_user=current_user)
 
-@app.route('/<current_user>/<projectName>/discussionBoard')
+@app.route('/<current_user>/<projectName>/Discussion')
 def talkBox(current_user, projectName):
-
-    return render_template('discussionBoard.html',current_user=current_user)
+    fileP = dataString+projectName+'.json'
+    filein = open(fileP, 'r')
+    print(fileP)
+    print(filein)
+    proj = json.loads(filein.read())
+    print(proj)
+    return render_template("discussionBoard.html", current_user=current_user,proj=proj)
 
 @app.route('/<current_user>/projects')
 def projectList(current_user):
@@ -62,6 +67,26 @@ def projectSplash(current_user, projectName):
     proj = json.loads(filein.read())
     print(proj)
     return render_template("projectDash.html", current_user=current_user,proj=proj)
+
+@app.route('/<current_user>/<projectName>/BackLog')
+def projectBackLog(current_user, projectName):
+    fileP = dataString+projectName+'.json'
+    filein = open(fileP, 'r')
+    print(fileP)
+    print(filein)
+    proj = json.loads(filein.read())
+    print(proj)
+    return render_template("backlog.html", current_user=current_user,proj=proj)
+
+@app.route('/<current_user>/<projectName>/SandBox')
+def projectSandBox(current_user, projectName):
+    fileP = dataString+projectName+'.json'
+    filein = open(fileP, 'r')
+    print(fileP)
+    print(filein)
+    proj = json.loads(filein.read())
+    print(proj)
+    return render_template("SandBox.html", current_user=current_user,proj=proj)
 
 @app.route('/<current_user>/createProject', methods=['GET', 'POST'])
 def createProj(current_user):

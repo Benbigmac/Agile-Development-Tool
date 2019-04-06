@@ -1,55 +1,56 @@
-
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <!-- Compiled and minified CSS -->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+          <!-- Compiled and minified JavaScript -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 
   </head>
   <body>
 
       <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
-      <aside class="mdc-drawer mdc-drawer--modal " data-mdc-auto-init="MDCDrawer">
-      <div class="mdc-drawer__content mdc-drawer-surface-fill-color(gray)">
+      <aside class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
+      <div class="mdc-drawer__content">
         <nav class="mdc-list">
-          <a class="mdc-list-item mdc-list-item--activated" aria-selected="true">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true"></i>
-            <span class="mdc-list-item__text">Getting Started</span>
+          <a class="mdc-list-item mdc-list-item--activated"id="projHome"  href="" aria-selected="true">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+            <span class="mdc-list-item__text">Project Home</span>
           </a>
-
-          <a class="mdc-list-item" id="content1" href="createTask.html">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">note_add</i>
-            <span class="mdc-list-item__text">Tasks</span>
+          <a class="mdc-list-item" id="disc" href="{{url_for('talkBox', current_user=current_user, projectName= proj['name'] )}}">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+            <span class="mdc-list-item__text">Discussion board</span>
           </a>
-          <a class="mdc-list-item" id="content3" href="backlog.html">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">add_to_queue</i>
-            <span class="mdc-list-item__text">Product Backlog</span>
-          </a>
-          <a class="mdc-list-item" id="content6" href="backlog.html">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">add_to_queue</i>
-            <span class="mdc-list-item__text">Sprints</span>
-          </a>
-          <a class="mdc-list-item" id="content2" href="currentSprint.html">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">library_add</i>
+          <a class="mdc-list-item" id="currSprint" href="">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
             <span class="mdc-list-item__text">Current Sprint</span>
           </a>
-
-          <a class="mdc-list-item" id="content4" href="../{{proj["name"]}}/discussionBoard">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">add_comment</i>
-            <span class="mdc-list-item__text">Discussion Board</span>
+          <a class="mdc-list-item" id="sprints" href="">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+            <span class="mdc-list-item__text">Sprints</span>
           </a>
-          <a class="mdc-list-item" id="content5" href="../{{proj["name"]}}/accountSettings">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
-            <span class="mdc-list-item__text">Account Settings</span>
-          </a>
-
+          <a class="mdc-list-item" id="task" href="">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+            <span class="mdc-list-item__text">Create Task</span></a>
+            <a class="mdc-list-item" id="backl" href="{{url_for('projectBackLog', current_user=current_user, projectName= proj['name'] )}}">
+              <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+              <span class="mdc-list-item__text">BackLog</span>
+            </a>
+            <a class="mdc-list-item" id="sand" href="">
+              <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+              <span class="mdc-list-item__text">SandBox</span>
+            </a>
         </nav>
       </div>
     </aside>
@@ -63,7 +64,7 @@
       <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
           <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
-          <span class="mdc-top-app-bar__title">Welcome To Your Project Page</span>
+          <span class="mdc-top-app-bar__title">{{proj['name']}}</span>
         </section>
       </div>
     </header>
@@ -71,40 +72,21 @@
 
 
         </div></div>
-      <div id='content1'>
-        <center><form action="create a form">
-              <br>
-              <br>
-              <label for="Tname">Task Name</label>
-              <input type="text" id="Tname" name="firstname" placeholder="This task"><br><br>
+      <div id='content'>
+        {% block body %}
 
-              <label for="StoryPoint">Story Point</label>
-              <input type="text" id="SP" name="SP" placeholder="1, 3, 5,..."><br><br>
-
-              <label for="Team">Team</label>
-              <select id="team" name="ID">
-                <option value="Team1">Developer</option>
-                <option value="Team2">Project Manager</option>
-                <option value="Team3">Scrum Master</option>
-              </select><br><br>
-
-              <label for="subject">More Notes</label><br>
-              <textarea id="subject" name="subject" placeholder="To-do..." style="height:300px weight:500px"></textarea><br>
-
-              <input type="submit" value="Submit">
-
-          </form></center>
-
-
+        {% endblock %}
       </div>
 
 
     <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
 
+
+<!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="script.js"></script>
 
 
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
@@ -123,24 +105,7 @@
       });
       // could/should/would add an event handler for the drawer items;  click should close the drawer
 
-        $('#draft').click(function(){
 
-        $("#content1").load("createTask.html");
-           drawer.open = !drawer.open;
-          });
-      $('#inbox').click(function(){
-
-        $("#content2").load("currentSprint.html");
-       drawer.open = !drawer.open;
-      });
-        $('#content').click(function(){
-
-        $("#content3").load("productBacklog.html");
-       drawer.open = !drawer.open;
-      });
-        $("#content6").load("sprints.html");
-       drawer.open = !drawer.open;
-      });
     })
 
     </script>
