@@ -1,6 +1,7 @@
 {
 "name":"Firescrum",
 "SandBox":[],
-"BackLog":[{"Issue_Name":"get It Done","time":4,"Description":"what you talking bout Lillis?"}]
-
+"BackLog":[{"Issue_Name":"get It Done","time":4,"Description":"what you talking bout Lillis?"}],
+"sprints":[],
+"currentSprint":[{"TODO":[{"Issue_Name":"get It Done","time":4,"Description":"what you talking bout Lillis?","Tasks":[]},{"Issue_Name":"ticket 3e","time":2,"Description":"what is happening?","Tasks":[]}],"In_Progress:":[],"Done":[]}]
 }

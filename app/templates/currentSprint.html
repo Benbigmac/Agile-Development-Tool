@@ -1,0 +1,18 @@
+{% extends "projectDash.html" %}
+{%block body%}
+
+
+<div>
+
+{%for story in proj['currentSprint']%}
+<div class="row">
+<div class="TODO"></div>
+<div class="In Progress"></div>
+<div class="DONE"></div>
+</div>
+{%endfor%}
+
+  </div>
+
+
+{%endblock%}
