@@ -38,7 +38,13 @@ def about():
 
 @app.route('/<current_user>/<projectName>/accountSettings', methods=['GET', 'POST'])
 def modifyAccount(current_user,projectName):
-    return render_template("accountSettings.html",current_user=current_user)
+    fileP = dataString+projectName+'.json'
+    filein = open(fileP, 'r')
+    print(fileP)
+    print(filein)
+    proj = json.loads(filein.read())
+    print(proj)
+    return render_template("accountSettings.html", current_user=current_user,proj=proj)
 
 @app.route('/<current_user>/<projectName>/Discussion')
 def talkBox(current_user, projectName):
