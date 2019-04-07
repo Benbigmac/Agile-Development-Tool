@@ -46,6 +46,7 @@ def modifyAccount(current_user,projectName):
     print(proj)
     return render_template("accountSettings.html", current_user=current_user,proj=proj)
 
+
 @app.route('/<current_user>/<projectName>/Discussion')
 def talkBox(current_user, projectName):
     fileP = dataString+projectName+'.json'
