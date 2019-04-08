@@ -120,16 +120,20 @@ def projectBackLog(current_user, projectName):
 
 @app.route('/<current_user>/<projectName>/SandBox', methods=['GET', 'POST'])
 def projectSandBox(current_user, projectName):
-    if request.method == 'POST':
-        Issue_Name=request.form["Issue_Name"]
-        time=request.form["time"]
-        Description=request.form["Description"]
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
     print(fileP)
     print(filein)
     proj = json.loads(filein.read())
     print(proj)
+    if request.method == 'POST':
+        Issue_Name=request.form["Issue_Name"]
+        time=request.form["time"]
+        Description=request.form["Description"]
+        item={"Issue_Name":Issue_Name,"time":time,"Description":Description}
+        proj["SandBox"].append(item)
+        with open(fileP,'w') as fileout:
+            fileout.write(json.dumps(proj, indent=2))
     form=SandBox()
     form2=ConvertToBackLog()
     return render_template("SandBox.html", current_user=current_user,proj=proj, form=form,form2=form2)

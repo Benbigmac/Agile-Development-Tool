@@ -37,6 +37,7 @@ class SandBox(FlaskForm):
     Issue_Name = StringField('Issue Name')
     time = StringField('Time')
     Description = StringField('description')
+    submit = SubmitField('Add to SandBox')
 
 class ConvertToBackLog(FlaskForm):
     submit = SubmitField('Convert To BackLog')
