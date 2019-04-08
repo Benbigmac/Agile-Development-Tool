@@ -46,6 +46,26 @@ def modifyAccount(current_user,projectName):
     print(proj)
     return render_template("accountSettings.html", current_user=current_user,proj=proj)
 
+@app.route('/<current_user>/<projectName>/CurrentSprint')
+def projectCurrentSprint(current_user, projectName):
+    fileP = dataString+projectName+'.json'
+    filein = open(fileP, 'r')
+    print(fileP)
+    print(filein)
+    proj = json.loads(filein.read())
+    print(proj)
+    return render_template("currentSprint.html", current_user=current_user,proj=proj)
+
+@app.route('/<current_user>/<projectName>/Sprints')
+def projectSprints(current_user, projectName):
+    fileP = dataString+projectName+'.json'
+    filein = open(fileP, 'r')
+    print(fileP)
+    print(filein)
+    proj = json.loads(filein.read())
+    print(proj)
+    return render_template("sprints.html", current_user=current_user,proj=proj)
+
 @app.route('/<current_user>/<projectName>/Discussion')
 def talkBox(current_user, projectName):
     fileP = dataString+projectName+'.json'
@@ -108,7 +128,6 @@ def createProj(current_user):
 
         print(projectName)
         print(description)
-
         newProj={"name":projectName,"description":description}
         projList.append(newProj)
         print(projList)
