@@ -1,55 +1,66 @@
 {
   "name": "Firescrum",
-  "SandBox": [],
-  "BackLog": [{
-    "Issue_Name": "get It Done",
+  "SandBox": [
+  {
+    "Issue_Name": "getItDone",
     "time": 4,
     "Description": "what you talking bout Lillis?"
-  },
-  {
-    "Issue_Name": "Implement proper data modificatoin",
-    "time": 4,
-    "Description": "This will allow easier modification of each field"
-  },
-  {
-    "Issue_Name": "Add button to move to sprint by number",
-    "time": 4,
-    "Description": "This will be done by dropdone or something"
-  }
-],
-  "sprints": [{
+  }],
+  "BackLog": [
+    {
+      "Issue_Name": "Implement proper data modificatoin",
+      "time": 4,
+      "Description": "This will allow easier modification of each field"
+    },
+    {
+      "Issue_Name": "Add button to move to sprint by number",
+      "time": 4,
+      "Description": "This will be done by dropdone or something"
+    }
+  ],
+  "sprints": [
+    {
       "sprintNumber": "sprint1",
-      "SprintData": [{
-        "TODO": [{
+      "SprintData": [
+        {
+          "TODO": [
+            {
+              "Issue_Name": "get It Done",
+              "time": 4,
+              "Description": "what you talking bout Lillis?",
+              "Tasks": []
+            },
+            {
+              "Issue_Name": "ticket 3e",
+              "time": 2,
+              "Description": "what is happening?",
+              "Tasks": []
+            }
+          ],
+          "In_Progress:": [],
+          "Done": []
+        }
+      ]
+    }
+  ],
+  "currentSprint": [
+    {
+      "TODO": [
+        {
           "Issue_Name": "get It Done",
           "time": 4,
           "Description": "what you talking bout Lillis?",
           "Tasks": []
-        }, {
+        },
+        {
           "Issue_Name": "ticket 3e",
           "time": 2,
           "Description": "what is happening?",
           "Tasks": []
-        }],
-        "In_Progress:": [],
-        "Done": []
-      }]
+        }
+      ],
+      "In_Progress:": [],
+      "Done": []
     }
-
-  ],
-  "currentSprint": [{
-    "TODO": [{
-      "Issue_Name": "get It Done",
-      "time": 4,
-      "Description": "what you talking bout Lillis?",
-      "Tasks": []
-    }, {
-      "Issue_Name": "ticket 3e",
-      "time": 2,
-      "Description": "what is happening?",
-      "Tasks": []
-    }],
-    "In_Progress:": [],
-    "Done": []
-  }]
+  ]
 }

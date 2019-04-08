@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request,session
 from app import app
-from app.forms import LoginForm, RegistrationForm, ProjectForm,TaskForm,SandBox
+from app.forms import LoginForm, RegistrationForm, ProjectForm,TaskForm,SandBox,ConvertToBackLog
 import json, sys
 
 current_user=""
@@ -131,7 +131,8 @@ def projectSandBox(current_user, projectName):
     proj = json.loads(filein.read())
     print(proj)
     form=SandBox()
-    return render_template("SandBox.html", current_user=current_user,proj=proj, form=form)
+    form2=ConvertToBackLog()
+    return render_template("SandBox.html", current_user=current_user,proj=proj, form=form,form2=form2)
 
 
 # This Function moves item from sandbox to BackLog
@@ -140,23 +141,28 @@ def projectSandBox(current_user, projectName):
 #current_user: name of user
 #projectName: Name of Project being done
 #Issue_Name: id and name of idea being moved
-@app.route('/<current_user>/<projectName>/SandBoxTOBackLog', methods=['GET', 'POST'])
+#Issue_Name: id and name of idea being moved
+
+@app.route('/<current_user>/<projectName>/<Issue_Name>', methods=['GET', 'POST'])
 def SandBoxTOBackLog(current_user, projectName, Issue_Name):
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
     print(fileP)
     print(filein)
-    #proj = json.loads(filein.read())
+    proj = json.loads(filein.read())
     print(proj)
-    if request.method == 'POST':
-        for idea in proj['SandBox']
-            if idea['Issue_Name'] == Issue_Name
-                copy=idea['Issue_Name'] # get item based on Issue_Name
-                proj['BackLog'].add(copy) # copy it to BackLog
-                del idea['Issue_Name'] #remove from SandBox
-                return url_for('projectBackLog', current_user=current_user, projectName= proj['name'] )
-    form=SandBox()
-    return render_template("SandBox.html", current_user=current_user,proj=proj, form=form)
+        #sandList
+    for idea in proj['SandBox']:
+        if idea['Issue_Name'] == Issue_Name:
+            copy=idea # get item based on Issue_Name
+            print(copy)
+            proj['BackLog'].append(copy) # copy it to BackLog
+            proj['SandBox'].remove(copy)  #remove from SandBox
+            with open(fileP,'w') as fileout:
+                fileout.write(json.dumps(proj, indent=2))
+    return redirect(url_for('projectBackLog', current_user=current_user, projectName= proj['name'] ))
+
+    #return render_template("SandBox.html", current_user=current_user,proj=proj, form=form, form2=form2)
 
 @app.route('/<current_user>/createProject', methods=['GET', 'POST'])
 def createProj(current_user):
