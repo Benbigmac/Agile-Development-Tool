@@ -32,3 +32,8 @@ class TaskForm(FlaskForm):
     taskGoal = StringField('State the goal')
     storyPoint = StringField('Story Point')
     assignedTo = StringField('Assigned To')
+
+class SandBox(FlaskForm):
+    Issue_Name = StringField('Issue Name')
+    time = StringField('Time')
+    Description = StringField('description')

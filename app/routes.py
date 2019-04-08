@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request,session
 from app import app
-from app.forms import LoginForm, RegistrationForm, ProjectForm
+from app.forms import LoginForm, RegistrationForm, ProjectForm,TaskForm,SandBox
 import json, sys
 
 current_user=""
@@ -38,6 +38,9 @@ def about():
 
 @app.route('/<current_user>/<projectName>/accountSettings', methods=['GET', 'POST'])
 def modifyAccount(current_user,projectName):
+    if request.method == 'POST':
+        description=request.form["taskGoal"]
+        #form
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
     print(fileP)
@@ -55,6 +58,17 @@ def projectCurrentSprint(current_user, projectName):
     proj = json.loads(filein.read())
     print(proj)
     return render_template("currentSprint.html", current_user=current_user,proj=proj)
+
+@app.route('/<current_user>/<projectName>/CreateTask')
+def projectcreateTask(current_user, projectName):
+    fileP = dataString+projectName+'.json'
+    filein = open(fileP, 'r')
+    print(fileP)
+    print(filein)
+    proj = json.loads(filein.read())
+    print(proj)
+    form=TaskForm()
+    return render_template("CreateTask.html", current_user=current_user,proj=proj,form=form)
 
 @app.route('/<current_user>/<projectName>/Sprints')
 def projectSprints(current_user, projectName):
@@ -104,15 +118,45 @@ def projectBackLog(current_user, projectName):
     print(proj)
     return render_template("backlog.html", current_user=current_user,proj=proj)
 
-@app.route('/<current_user>/<projectName>/SandBox')
+@app.route('/<current_user>/<projectName>/SandBox', methods=['GET', 'POST'])
 def projectSandBox(current_user, projectName):
+    if request.method == 'POST':
+        Issue_Name=request.form["Issue_Name"]
+        time=request.form["time"]
+        Description=request.form["Description"]
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
     print(fileP)
     print(filein)
     proj = json.loads(filein.read())
     print(proj)
-    return render_template("SandBox.html", current_user=current_user,proj=proj)
+    form=SandBox()
+    return render_template("SandBox.html", current_user=current_user,proj=proj, form=form)
+
+
+# This Function moves item from sandbox to BackLog
+#We will use this as a template for moving item from backlog to Current sprint
+#Data:
+#current_user: name of user
+#projectName: Name of Project being done
+#Issue_Name: id and name of idea being moved
+@app.route('/<current_user>/<projectName>/SandBoxTOBackLog', methods=['GET', 'POST'])
+def SandBoxTOBackLog(current_user, projectName, Issue_Name):
+    fileP = dataString+projectName+'.json'
+    filein = open(fileP, 'r')
+    print(fileP)
+    print(filein)
+    #proj = json.loads(filein.read())
+    print(proj)
+    if request.method == 'POST':
+        for idea in proj['SandBox']
+            if idea['Issue_Name'] == Issue_Name
+                copy=idea['Issue_Name'] # get item based on Issue_Name
+                proj['BackLog'].add(copy) # copy it to BackLog
+                del idea['Issue_Name'] #remove from SandBox
+                return url_for('projectBackLog', current_user=current_user, projectName= proj['name'] )
+    form=SandBox()
+    return render_template("SandBox.html", current_user=current_user,proj=proj, form=form)
 
 @app.route('/<current_user>/createProject', methods=['GET', 'POST'])
 def createProj(current_user):
@@ -140,7 +184,6 @@ def createProj(current_user):
 
 @app.route('/DBTEST')
 def dbTest():
-
     filein = open('C:/Users/swald/group7/app/data/projects.json', 'r')
     print (filein.read(), file=sys.stdout)
     filein.seek(0,0)
