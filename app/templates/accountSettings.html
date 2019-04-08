@@ -1,3 +1,62 @@
-{% extends "projectDash.html" %}
-{%block body%}
-{%endblock%}
+<center><h1>Edit Account Settings</h1>
+
+
+<fieldset>
+        <legend>User Profile</legend>
+            <div class="boxed">
+            <form class="account-settings" action="">
+              <div class="input">
+                <label for="firstname">First</label>
+                <input type="text"/>
+              </div>
+              <div class="input">
+                <label for="firstname">Last</label>
+                <input type="text"/>
+              </div>
+              <div class="input input--wide">
+                <label for="phone">Phone</label>
+                <input type="text"/>
+              </div>
+              <div class="input input--wide">
+                <label for="email">Email</label>
+                <input type="text"/>
+              </div>
+              <div class="input">
+                <label for="position">Job Position</label>
+                <select><option></option>
+                <option>Scrum Master</option>
+                <option>Developer</option>
+                <option>Project Manager</option>
+                <option>Administrator</option></select>
+              </div>
+              <div class="input">
+                <label for="birth-month">Birth Month</label>
+                <select><option>1</option></select>
+              </div>
+              <div class="input">
+                <label for="birth-month">Birth Day</label>
+                <select><option>1</option></select>
+              </div>
+              <div class="input">
+                <label for="birth-month">Preferred Language</label>
+                <select>
+                  <option></option>
+                  <option>English</option>
+                  <option>Español</option>
+                  <option>Portuguese</option>
+                  <option>Esperanto</option>
+                  <option>Chinese</option>
+                  <option>Italian</option>
+                  <option>Polish</option>
+                  <option>German</option>
+                  <option>Japanese</option>
+                </select>
+              </div><br><br>
+
+              <button class="btn btn-success center-block" type="button">
+                  Save Settings
+              </button>
+
+            </form>
+            </div>
+</fieldset></center>
