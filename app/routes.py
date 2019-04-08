@@ -4,8 +4,8 @@ from app.forms import LoginForm, RegistrationForm, ProjectForm
 import json, sys
 
 current_user=""
-#dataString='/Users/lzhou/Documents/group7/app/data/'
-dataString='C:/Users/benma/Desktop/cs442/code/group7/app/data/'
+dataString='/Users/lzhou/Documents/group7/app/data/'
+#dataString='C:/Users/benma/Desktop/cs442/code/group7/app/data/'
 #dataString='C:/Users/swald/group7/app/data/'
 @app.route('/', methods=['GET', 'POST'])
 def home():

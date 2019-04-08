@@ -1,3 +1,118 @@
-{% extends "projectDash.html" %}
-{%block body%}
-{%endblock%}
+<center><h1>Edit Account Settings</h1>
+
+
+<fieldset>
+        <legend>User Profile</legend>
+            <div class="boxed">
+            <form class="account-settings" action="">
+              <div class="input">
+                <label for="firstname">First</label>
+                <input type="text"/>
+              </div>
+              <div class="input">
+                <label for="firstname">Last</label>
+                <input type="text"/>
+              </div>
+              <div class="input input--wide">
+                <label for="phone">Phone</label>
+                <input type="text"/>
+              </div>
+              <div class="input input--wide">
+                <label for="email">Email</label>
+                <input type="text"/>
+              </div>
+              <div class="input">
+                <label for="position">Job Position</label>
+                <select><option></option>
+                <option>Scrum Master</option>
+                <option>Developer</option>
+                <option>Project Manager</option>
+                <option>Administrator</option></select>
+              </div>
+              <div class="input">
+                <label for="birth-month">Birth Month</label>
+                <select><option>1</option></select>
+              </div>
+              <div class="input">
+                <label for="birth-month">Birth Day</label>
+                <select><option>1</option></select>
+              </div>
+              <div class="input">
+                <label for="birth-month">Preferred Language</label>
+                <select>
+                  <option></option>
+                  <option>English</option>
+                  <option>Español</option>
+                  <option>Portuguese</option>
+                  <option>Esperanto</option>
+                  <option>Chinese</option>
+                  <option>Italian</option>
+                  <option>Polish</option>
+                  <option>German</option>
+                  <option>Japanese</option>
+                </select>
+              </div><br><br>
+
+              <button class="btn btn-success center-block" type="button">
+                  Save Settings
+              </button>
+
+            </form>
+            </div>
+</fieldset>
+
+<br><br>
+<br><br>
+
+<fieldset>
+        <legend>FireScrum Environment</legend>
+            <div class="boxed">
+            <form class="layout-choice" action="">
+              <div class="input">
+              <label for="Theme">Layout Theme</label>
+                <select>
+                  <option></option>
+                  <option>Default</option>
+                  <option>Pokemon Theme</option>
+                  <option>Game of Thrones Theme</option>
+                  <option>Star Wars Theme</option>
+                  <option>Harry Potter Theme</option>
+                </select>
+              </div>
+
+              <div class="input">
+                <label for="alert-notifs">Calendar Sync?</label>
+                <select>
+                  <option></option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+
+              <div class="input">
+                <label for="alert-notifs">Alert Notifications</label>
+                <select>
+                  <option></option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+
+
+                <div class="input">
+                  <label for="alert-notifs">Notifications Format</label>
+                  <select>
+                    <option></option>
+                    <option>Text</option>
+                    <option>Email</option>
+                    <option>Both</option>
+                    <option>None</option>
+                  </select>
+
+              </div><br><br>
+
+              <button class="btn btn-success center-block" type="button">
+                 Update Settings
+              </button>
+
+            </form>
+            </div>
+</fieldset></center>
