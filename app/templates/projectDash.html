@@ -32,11 +32,12 @@
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
             <span class="mdc-list-item__text">Discussion board</span>
           </a>
-          <a class="mdc-list-item" id="currSprint" href="">
+
+          <a class="mdc-list-item" id="currSprint" href="{{url_for('projectCurrentSprint', current_user=current_user, projectName= proj['name'] )}}">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
             <span class="mdc-list-item__text">Current Sprint</span>
           </a>
-          <a class="mdc-list-item" id="sprints" href="">
+          <a class="mdc-list-item" id="sprints" href="{{url_for('projectSprints', current_user=current_user, projectName= proj['name'] )}}">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
             <span class="mdc-list-item__text">Sprints</span>
           </a>
@@ -50,6 +51,10 @@
             <a class="mdc-list-item" id="sand" href="{{url_for('projectSandBox', current_user=current_user, projectName= proj['name'] )}}">
               <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
               <span class="mdc-list-item__text">SandBox</span>
+            </a>
+            <a class="mdc-list-item" id="sand" href="{{url_for('modifyAccount', current_user=current_user, projectName= proj['name'] )}}">
+              <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+              <span class="mdc-list-item__text">Account Settings</span>
             </a>
         </nav>
       </div>
