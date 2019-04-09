@@ -15,25 +15,68 @@
       <h1>{{story['time']}}</h1>
     </div>
     <div class="card-action">
-<!--      <a href="#">This is a link</a>
-      <a href="#">This is a link</a>-->
+<!--      <a href="#">Send TO BackLog</a>
+      <a href="#">Send To Next Sprint</a>-->
     </div>
   </div>
 </th>
 
 
-<th class="TODO col-md-3" style="background-color:RED;"
+<th class="TODO col-md-3" style="background-color:RED;">
+{% for task in story['Tasks']['TODO']  %}
+
+<div class="card blue-grey darken-1">
+  <div class="card-content white-text">
+    <span class="card-title">{{task['Issue_Name']}}</span>
+    <p>{{task['Description']}}</p><br/>
+    <h1>{{task['time']}}</h1>
+  </div>
+  <div class="card-action">
+    <!--      <a href="#">Send TO BackLog</a>
+        <a href="#">Send To Next Sprint</a>-->
+  </div>
+</div>
 
 
-
-></th>
+{%endfor%}
+</th>
 <th class="InProgress col-md-3" style="background-color:ORANGE;">
+  {% for task in story['Tasks']['In_Progress']  %}
 
+  <div class="card blue-grey darken-1">
+    <div class="card-content white-text">
+      <span class="card-title">{{task['Issue_Name']}}</span>
+      <p>{{task['Description']}}</p><br/>
+      <h1>{{task['time']}}</h1>
+    </div>
+    <div class="card-action">
+      <!--      <a href="#">Send TO BackLog</a>
+          <a href="#">Send To Next Sprint</a>-->
+    </div>
+  </div>
+
+
+  {%endfor%}
 
 </th>
 <th class="DONE col-md-3" style="background-color:GREEN;">
 
+  {% for task in story['Tasks']['Done']  %}
 
+  <div class="card blue-grey darken-1">
+    <div class="card-content white-text">
+      <span class="card-title">{{task['Issue_Name']}}</span>
+      <p>{{task['Description']}}</p><br/>
+      <h1>{{task['time']}}</h1>
+    </div>
+    <div class="card-action">
+  <!--      <a href="#">Send TO BackLog</a>
+      <a href="#">Send To Next Sprint</a>-->
+    </div>
+  </div>
+
+
+  {%endfor%}
 
 </th>
 </div>

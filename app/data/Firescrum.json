@@ -27,7 +27,9 @@
   "sprints": [
     {
       "sprintNumber": "sprint1",
-      "SprintData": [
+      "StartDate":"",
+      "EndDate":"",
+      "SprintData":
         {
           "TODO": [
             {
@@ -46,7 +48,7 @@
           "In_Progress:": [],
           "Done": []
         }
-      ]
+
     }
   ],
   "currentSprint": {
@@ -55,7 +57,22 @@
         "Issue_Name": "get It Done",
         "time": 4,
         "Description": "what you talking bout Lillis?",
-        "Tasks": []
+        "Tasks": {  "TODO": [
+            {
+              "Issue_Name": "get It Done Mini ME",
+              "time": 4,
+              "Description": "what you talking bout Lillis?",
+              "Tasks": []
+            },
+            {
+              "Issue_Name": "ticket 3e",
+              "time": 2,
+              "Description": "what is happening?",
+              "Tasks": []
+            }
+          ],
+          "In_Progress:": [],
+          "Done": []}
       },
       {
         "Issue_Name": "ticket 3e",
