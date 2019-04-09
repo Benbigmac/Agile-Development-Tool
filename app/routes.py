@@ -118,6 +118,28 @@ def projectBackLog(current_user, projectName):
     print(proj)
     return render_template("backlog.html", current_user=current_user,proj=proj)
 
+@app.route('/<current_user>/<projectName>/<Issue_Name>', methods=['GET', 'POST'])
+def projectTOCurrentSprint(current_user, projectName, Issue_Name):
+    fileP = dataString+projectName+'.json'
+    filein = open(fileP, 'r')
+    print(fileP)
+    print(filein)
+    proj = json.loads(filein.read())
+    print(proj)
+    print(proj['currentSprint'])
+    todList=proj['currentSprint']["TODO"]
+    print(todList)
+    for idea in proj['BackLog']:
+        if idea['Issue_Name'] == Issue_Name:
+            copy=idea # get item based on Issue_Name
+            print(copy)
+            todList.append(copy) # copy it to BackLog
+            proj['currentSprint']["TODO"]=todList
+            proj['BackLog'].remove(copy)  #remove from SandBox
+            with open(fileP,'w') as fileout:
+                fileout.write(json.dumps(proj, indent=2))
+    return redirect(url_for('projectBackLog', current_user=current_user, projectName= proj['name'] ))
+
 @app.route('/<current_user>/<projectName>/SandBox', methods=['GET', 'POST'])
 def projectSandBox(current_user, projectName):
     fileP = dataString+projectName+'.json'
@@ -146,7 +168,6 @@ def projectSandBox(current_user, projectName):
 #projectName: Name of Project being done
 #Issue_Name: id and name of idea being moved
 #Issue_Name: id and name of idea being moved
-
 @app.route('/<current_user>/<projectName>/<Issue_Name>', methods=['GET', 'POST'])
 def SandBoxTOBackLog(current_user, projectName, Issue_Name):
     fileP = dataString+projectName+'.json'
@@ -155,7 +176,6 @@ def SandBoxTOBackLog(current_user, projectName, Issue_Name):
     print(filein)
     proj = json.loads(filein.read())
     print(proj)
-        #sandList
     for idea in proj['SandBox']:
         if idea['Issue_Name'] == Issue_Name:
             copy=idea # get item based on Issue_Name

@@ -41,3 +41,6 @@ class SandBox(FlaskForm):
 
 class ConvertToBackLog(FlaskForm):
     submit = SubmitField('Convert To BackLog')
+
+class AddToSprint(FlaskForm):
+    submit = SubmitField('Add to Sprint')
