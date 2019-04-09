@@ -3,13 +3,14 @@
 
 
 <div>
+<table style="width:100%">
+{%for story in proj['currentSprint']['TODO']%}
+ <tr>
 
-{%for story in proj['currentSprint']%}
-
-<div class="col s12 m6">
+<th class="">
   <div class="card blue-grey darken-1">
     <div class="card-content white-text">
-      <span class="card-title">Forecast</span>
+      <span class="card-title">{{story['Issue_Name']}}</span>
       <p>{{story['Description']}}</p><br/>
       <h1>{{story['time']}}</h1>
     </div>
@@ -18,64 +19,25 @@
       <a href="#">This is a link</a>-->
     </div>
   </div>
-</div>
+</th>
 
-  <div class="col s12 m6">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">TO-DO</span>
-        <p>{{story['Description']}}</p><br/>
-        <h1>{{story['time']}}</h1>
-      </div>
-      <div class="card-action">
-  <!--      <a href="#">This is a link</a>
-        <a href="#">This is a link</a>-->
-      </div>
-    </div>
-  </div>
-  <div class="col s12 m6">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">In Progress</span>
-        <p>{{story['Description']}}</p><br/>
-        <h1>{{story['time']}}</h1>
-      </div>
-      <div class="card-action">
-  <!--      <a href="#">This is a link</a>
-        <a href="#">This is a link</a>-->
-      </div>
-    </div>
-  </div>
-  <div class="col s12 m6">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">QA/Testing</span>
-        <p>{{story['Description']}}</p><br/>
-        <h1>{{story['time']}}</h1>
-      </div>
-      <div class="card-action">
-  <!--      <a href="#">This is a link</a>
-        <a href="#">This is a link</a>-->
-      </div>
-    </div>
-  </div>
-  <div class="col s12 m6">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">Done!</span>
-        <p>{{story['Description']}}</p><br/>
-        <h1>{{story['time']}}</h1>
-      </div>
-      <div class="card-action">
-  <!--      <a href="#">This is a link</a>
-        <a href="#">This is a link</a>-->
-      </div>
-    </div>
-  </div>
-<div class="TODO"></div>
-<div class="In Progress"></div>
-<div class="DONE"></div>
+
+<th class="TODO col-md-3" style="background-color:RED;"
+
+
+
+></th>
+<th class="InProgress col-md-3" style="background-color:ORANGE;">
+
+
+</th>
+<th class="DONE col-md-3" style="background-color:GREEN;">
+
+
+
+</th>
 </div>
+ </tr>
 {%endfor%}
 
   </div>
