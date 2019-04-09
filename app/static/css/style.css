@@ -10,10 +10,6 @@ body {
   background-color: #ff8300;
 }
 
-form {
-  text-align: center;
-}
-
 .boxed {
   border: 1px solid red ;
 }
@@ -42,7 +38,8 @@ label {
 }
 
 .form-container button {
-  margin: auto;
+  margin-right: auto;
+  margin-left: auto;
   display: block;
 }
 
