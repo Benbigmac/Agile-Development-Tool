@@ -104,23 +104,16 @@
         drawer.open = !drawer.open;
       });
       // could/should/would add an event handler for the drawer items;  click should close the drawer
-
-
-        $("#content2").load("currentSprint.html");
-       drawer.open = !drawer.open;
-      });
-        $('#content').click(function(){
-
-        $("#content3").load("productBacklog.html");
-       drawer.open = !drawer.open;
-     });
+    });
     </script>
 
     <script>
       $( function() {
-        $("#draggable").draggable({
+        $(".draggable").draggable({
           containment: "#containment-wrapper",
-          scroll: true
+          scroll: true,
+          snap: ".ui-widget-header",
+          snapMode: "inner"
         });
       });
     </script>

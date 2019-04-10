@@ -26,11 +26,11 @@
 </th>
 
 
-<th class="TODO col-md-3" style="background-color:RED;">
+<th class="TODO col-md-3 ui-widget-header" style="background-color:RED;">
 {% if story['Tasks']['TODO'] %}
 {% for task in story['Tasks']['TODO']  %}
 
-<div id="draggable" class="card blue-grey darken-1 draggable ui-widget-content">
+<div class="card blue-grey darken-1 draggable ui-widget-content">
   <div class="card-content white-text">
     <span class="card-title">{{task['Issue_Name']}}</span>
     <p>{{task['Description']}}</p><br/>
@@ -46,11 +46,11 @@
 {%endfor%}
 {%endif%}
 </th>
-<th class="InProgress col-md-3" style="background-color:ORANGE;">
+<th class="InProgress col-md-3 ui-widget-header" style="background-color:ORANGE;">
   {% if story['Tasks']['In_Progress'] %}
   {% for task in story['Tasks']['In_Progress']  %}
 
-  <div class="card blue-grey darken-1">
+  <div class="card blue-grey darken-1 draggable ui-widget-content">
     <div class="card-content white-text">
       <span class="card-title">{{task['Issue_Name']}}</span>
       <p>{{task['Description']}}</p><br/>
@@ -66,11 +66,11 @@
   {%endfor%}
 {%endif%}
 </th>
-<th class="DONE col-md-3" style="background-color:GREEN;">
+<th class="DONE col-md-3 ui-widget-header" style="background-color:GREEN;">
   {% if story['Tasks']['Done'] %}
   {% for task in story['Tasks']['Done']  %}
 
-  <div class="card blue-grey darken-1">
+  <div class="card blue-grey darken-1 draggable ui-widget-content">
     <div class="card-content white-text">
       <span class="card-title">{{task['Issue_Name']}}</span>
       <p>{{task['Description']}}</p><br/>
