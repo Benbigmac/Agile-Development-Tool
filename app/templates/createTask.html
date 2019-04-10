@@ -38,33 +38,17 @@ div {
 
 <center><h1>New Project Tasks</h1></center>
 
-  <form>
+  <form action="{{url_for('projectcreateTask', current_user=current_user, projectName= proj['name'], Issue_Name=Issue_Name2)}}" method="POST">
     Task Name:<br>
-    <input type="text" name="taskName"><br>
+    {{form.taskName}}<br>
     Task Description:<br>
-    <input type="text" name="taskDescription">
+    {{form.taskGoal}}
     Assigned To:<br>
-    <input type="text" name="assignment">
+    {{form.assignedTo}}
     Story Point:<br>
-    <input type="text" name="storyPoint">
+    {{form.storyPoint}}
     <br>
-    Priority:<br>
-    <input type="text" name="priority">
-    <select id="text" name="priority">
-      <option value="High">High</option>
-      <option value="Medium">Medium</option>
-      <option value="Low">Low</option>
-    </select>
-    <br>
-
-    <label>
-        <input name="group1" type="radio" checked />
-        <span>Hidden in Calendar</span>
-    </label>
-
-
-    <br>
-    <input type="submit" value="Create">
+    {{form.submit}}
     <br>
     <br>
     <input type="reset" value="Reset">

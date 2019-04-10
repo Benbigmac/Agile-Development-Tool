@@ -4,8 +4,8 @@ from app.forms import LoginForm, RegistrationForm, ProjectForm,TaskForm,SandBox,
 import json, sys
 
 current_user=""
-dataString='/Users/lzhou/Documents/group7/app/data/'
-#dataString='C:/Users/benma/Desktop/cs442/code/group7/app/data/'
+#dataString='/Users/lzhou/Documents/group7/app/data/'
+dataString='C:/Users/benma/Desktop/cs442/code/group7/app/data/'
 #dataString='C:/Users/swald/group7/app/data/'
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -59,7 +59,7 @@ def projectCurrentSprint(current_user, projectName):
     print(proj)
     return render_template("currentSprint.html", current_user=current_user,proj=proj)
 
-@app.route('/<current_user>/<projectName>/<Issue_Name>/CreateTask')
+@app.route('/<current_user>/<projectName>/<Issue_Name>/CreateTask', methods=['GET', 'POST'])
 def projectcreateTask(current_user, projectName, Issue_Name):
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
@@ -68,27 +68,27 @@ def projectcreateTask(current_user, projectName, Issue_Name):
     proj = json.loads(filein.read())
     print(proj)
     if request.method == 'POST':
-        Issue_Name = request.form['taskName']
+        Issue_Name3 = request.form['taskName']
         Description = request.form['taskGoal']
         time= request.form['storyPoint']
         assignedTo = request.form['assignedTo']
-        newTask={'Issue_Name':Issue_Name,
-                    'time':time,
-                    'Description':Description,
-                    'assignedTo':assignedTo}
-        todList=proj['currentSprint']["TODO"]
-        print(todList)
+        newTask={'Issue_Name':Issue_Name3,'time':time,'Description':Description,'assignedTo':assignedTo}
+        todList=proj['currentSprint']['TODO']
         for idea in todList:
             if idea['Issue_Name'] == Issue_Name:
-                idea['Tasks'].append(newTask)
-        todList=proj['currentSprint']["In_Progress"]
-        print(todList)
+                idea['Tasks']['TODO'].append(newTask)
+                with open(fileP,'w') as fileout:
+                    fileout.write(json.dumps(proj, indent=2))
+                return redirect(url_for('projectCurrentSprint', current_user=current_user, projectName= proj['name'] ))
+        todList=proj['currentSprint']['In_Progress']
         for idea in todList:
             if idea['Issue_Name'] == Issue_Name:
-                idea['Tasks'].append(newTask)
-        return redirect(url_for('projectCurrentSprint', current_user=current_user, projectName= proj['name'] ))
+                idea['Tasks']['TODO'].append(newTask)
+                with open(fileP,'w') as fileout:
+                    fileout.write(json.dumps(proj, indent=2))
+                return redirect(url_for('projectCurrentSprint', current_user=current_user, projectName= proj['name'] ))
     form=TaskForm()
-    return render_template("CreateTask.html", current_user=current_user,proj=proj,form=form)
+    return render_template("CreateTask.html", current_user=current_user,proj=proj,Issue_Name2=Issue_Name,form=form)
 
 @app.route('/<current_user>/<projectName>/Sprints')
 def projectSprints(current_user, projectName):

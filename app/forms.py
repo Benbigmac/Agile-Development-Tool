@@ -33,6 +33,7 @@ class TaskForm(FlaskForm):
     taskGoal = StringField('State the goal')
     storyPoint = StringField('Story Point')
     assignedTo = StringField('Assigned To')
+    submit = SubmitField("Create Account")
 
 class SandBox(FlaskForm):
     Issue_Name = StringField('Issue Name')
