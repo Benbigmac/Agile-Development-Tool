@@ -108,25 +108,30 @@
     </script>
 
     <script>
-      $(function(){
+      function dragInit() {
         $(".draggable").draggable({
-          // helper: "clone",
           containment: "#containment-wrapper",
           scroll: true,
-          snap: ".ui-widget-header",
+          snap: "#containment-wrapper table tr th",
           snapMode: "inner"
         });
+      }
+
+      $(function(){
+        dragInit();
 
         $("#containment-wrapper table tr th").droppable({
           drop: function(event, ui) {
-            console.log(event.target);
-            console.log(ui.draggable[0]);
+            var clone = document.createElement("div");
+            clone.className = (ui.draggable[0]).className;
+            clone.innerHTML = ((ui.draggable[0]).innerHTML);
 
-            $(event.target).append(ui.draggable[0]);
-            $(event.target).append("<p>test<p>");
+            $(event.target).append(clone);
 
             $(ui.draggable).remove();
             $(ui.helper).remove();
+
+            dragInit();
           }
         });
       });
