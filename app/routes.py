@@ -104,10 +104,10 @@ def projectSprints(current_user, projectName):
 def talkBox(current_user, projectName):
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
-    print(fileP)
-    print(filein)
     proj = json.loads(filein.read())
-    print(proj)
+    #print(proj)
+    print("\n\nDiscussion\n\n")
+    discussion = proj["Discussion"]
     return render_template("discussionBoard.html", current_user=current_user,proj=proj)
 
 @app.route('/<current_user>/projects')
