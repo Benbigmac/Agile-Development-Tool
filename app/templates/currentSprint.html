@@ -26,7 +26,7 @@
 </th>
 
 
-<th class="TODO col-md-3 ui-widget-header" style="background-color:RED;">
+<th class="TODO col-md-3" style="background-color:RED;">
 {% if story['Tasks']['TODO'] %}
 {% for task in story['Tasks']['TODO']  %}
 
@@ -46,7 +46,7 @@
 {%endfor%}
 {%endif%}
 </th>
-<th class="InProgress col-md-3 ui-widget-header" style="background-color:ORANGE;">
+<th class="InProgress col-md-3" style="background-color:ORANGE;">
   {% if story['Tasks']['In_Progress'] %}
   {% for task in story['Tasks']['In_Progress']  %}
 
@@ -66,7 +66,7 @@
   {%endfor%}
 {%endif%}
 </th>
-<th class="DONE col-md-3 ui-widget-header" style="background-color:GREEN;">
+<th class="DONE col-md-3" style="background-color:GREEN;">
   {% if story['Tasks']['Done'] %}
   {% for task in story['Tasks']['Done']  %}
 

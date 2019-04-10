@@ -108,12 +108,26 @@
     </script>
 
     <script>
-      $( function() {
+      $(function(){
         $(".draggable").draggable({
+          // helper: "clone",
           containment: "#containment-wrapper",
           scroll: true,
           snap: ".ui-widget-header",
           snapMode: "inner"
+        });
+
+        $("#containment-wrapper table tr th").droppable({
+          drop: function(event, ui) {
+            console.log(event.target);
+            console.log(ui.draggable[0]);
+
+            $(event.target).append(ui.draggable[0]);
+            $(event.target).append("<p>test<p>");
+
+            $(ui.draggable).remove();
+            $(ui.helper).remove();
+          }
         });
       });
     </script>
