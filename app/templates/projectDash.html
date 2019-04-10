@@ -77,9 +77,6 @@
         </div></div>
       <div id='content'>
         {% block body %}
-        <div id="draggable" class="ui-widget-content">
-          <p>Drag me around</p>
-        </div>
         {% endblock %}
       </div>
 
@@ -121,7 +118,10 @@
 
     <script>
       $( function() {
-        $( "#draggable" ).draggable();
+        $("#draggable").draggable({
+          containment: "#containment-wrapper",
+          scroll: true
+        });
       });
     </script>
 

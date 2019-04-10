@@ -70,10 +70,3 @@ input, select, textarea {
 .light-yellow {
   background-color: #ffff66 !important;
 }
-
-#draggable {
-  width: 150px;
-  height: 150px;
-  padding: 0.5em;
-  border: 2px solid black;
-}
