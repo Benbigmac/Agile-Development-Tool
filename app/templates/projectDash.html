@@ -26,7 +26,7 @@
       <aside class="mdc-drawer mdc-drawer--modal" data-mdc-auto-init="MDCDrawer">
       <div class="mdc-drawer__content">
         <nav class="mdc-list">
-          <a class="mdc-list-item mdc-list-item--activated"id="projHome"  href="" aria-selected="true">
+          <a class="mdc-list-item mdc-list-item--activated"id="projHome"  href="{{url_for('projectSplash', current_user=current_user, projectName= proj['name'] )}}" aria-selected="true">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
             <span class="mdc-list-item__text">Project Home</span>
           </a>
@@ -34,7 +34,6 @@
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
             <span class="mdc-list-item__text">Discussion board</span>
           </a>
-
           <a class="mdc-list-item" id="currSprint" href="{{url_for('projectCurrentSprint', current_user=current_user, projectName= proj['name'] )}}">
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
             <span class="mdc-list-item__text">Current Sprint</span>
@@ -43,9 +42,6 @@
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
             <span class="mdc-list-item__text">Sprints</span>
           </a>
-          <a class="mdc-list-item" id="task" href="">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
-            <span class="mdc-list-item__text">Create Task</span></a>
             <a class="mdc-list-item" id="backl" href="{{url_for('projectBackLog', current_user=current_user, projectName= proj['name'] )}}">
               <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
               <span class="mdc-list-item__text">BackLog</span>
