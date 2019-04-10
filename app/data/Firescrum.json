@@ -27,10 +27,10 @@
   "sprints": [
     {
       "sprintNumber": "sprint1",
-      "StartDate":"",
-      "EndDate":"",
       "SprintData":
         {
+          "StartDate":"",
+          "EndDate":"",
           "TODO": [
             {
               "Issue_Name": "get It Done",
@@ -52,6 +52,8 @@
     }
   ],
   "currentSprint": {
+    "StartDate":"",
+    "EndDate":"",
     "TODO": [
       {
         "Issue_Name": "get It Done",

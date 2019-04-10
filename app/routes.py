@@ -59,14 +59,34 @@ def projectCurrentSprint(current_user, projectName):
     print(proj)
     return render_template("currentSprint.html", current_user=current_user,proj=proj)
 
-@app.route('/<current_user>/<projectName>/CreateTask')
-def projectcreateTask(current_user, projectName):
+@app.route('/<current_user>/<projectName>/<Issue_Name>/CreateTask')
+def projectcreateTask(current_user, projectName, Issue_Name):
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
     print(fileP)
     print(filein)
     proj = json.loads(filein.read())
     print(proj)
+    if request.method == 'POST':
+        Issue_Name = request.form['taskName']
+        Description = request.form['taskGoal']
+        time= request.form['storyPoint']
+        assignedTo = request.form['assignedTo']
+        newTask={'Issue_Name':Issue_Name,
+                    'time':time,
+                    'Description':Description,
+                    'assignedTo':assignedTo}
+        todList=proj['currentSprint']["TODO"]
+        print(todList)
+        for idea in todList:
+            if idea['Issue_Name'] == Issue_Name:
+                idea['Tasks'].append(newTask)
+        todList=proj['currentSprint']["In_Progress"]
+        print(todList)
+        for idea in todList:
+            if idea['Issue_Name'] == Issue_Name:
+                idea['Tasks'].append(newTask)
+        return redirect(url_for('projectCurrentSprint', current_user=current_user, projectName= proj['name'] ))
     form=TaskForm()
     return render_template("CreateTask.html", current_user=current_user,proj=proj,form=form)
 

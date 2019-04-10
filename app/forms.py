@@ -29,6 +29,7 @@ class ProjectForm(FlaskForm):
 
 
 class TaskForm(FlaskForm):
+    taskName = StringField('Task Name')
     taskGoal = StringField('State the goal')
     storyPoint = StringField('Story Point')
     assignedTo = StringField('Assigned To')
