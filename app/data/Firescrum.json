@@ -27,63 +27,90 @@
   "sprints": [
     {
       "sprintNumber": "sprint1",
-      "SprintData":
-        {
-          "StartDate":"",
-          "EndDate":"",
-          "TODO": [
-            {
-              "Issue_Name": "get It Done",
-              "time": 4,
-              "Description": "what you talking bout Lillis?",
-              "Tasks": []
-            },
-            {
-              "Issue_Name": "ticket 3e",
-              "time": 2,
-              "Description": "what is happening?",
-              "Tasks": []
-            }
-          ],
-          "In_Progress:": [],
-          "Done": []
-        }
-
+      "SprintData": {
+        "StartDate": "",
+        "EndDate": "",
+        "TODO": [
+          {
+            "Issue_Name": "get It Done",
+            "time": 4,
+            "Description": "what you talking bout Lillis?",
+            "Tasks": []
+          },
+          {
+            "Issue_Name": "ticket 3e",
+            "time": 2,
+            "Description": "what is happening?",
+            "Tasks": []
+          }
+        ],
+        "In_Progress": [],
+        "Done": []
+      }
     }
   ],
   "currentSprint": {
-    "StartDate":"",
-    "EndDate":"",
+    "StartDate": "",
+    "EndDate": "",
     "TODO": [
       {
         "Issue_Name": "get It Done",
         "time": 4,
         "Description": "what you talking bout Lillis?",
-        "Tasks": {  "TODO": [
+        "Tasks": {
+          "TODO": [
             {
               "Issue_Name": "get It Done Mini ME",
               "time": 4,
-              "Description": "what you talking bout Lillis?",
-              "Tasks": []
+              "Description": "what you talking bout Lillis?"
             },
             {
-              "Issue_Name": "ticket 3e",
+              "Issue_Name": "ticket 5553e",
               "time": 2,
-              "Description": "what is happening?",
-              "Tasks": []
+              "Description": "what is happening?"
+            },
+            {
+              "Issue_Name": "Ben",
+              "time": "2",
+              "Description": "Ben ben ben",
+              "assignedTo": "Ben"
             }
           ],
-          "In_Progress:": [],
-          "Done": []}
+          "In_Progress": [],
+          "Done": []
+        }
       },
       {
         "Issue_Name": "ticket 3e",
         "time": 2,
         "Description": "what is happening?",
-        "Tasks": []
+        "Tasks": {
+          "TODO": [
+            {
+              "Issue_Name": "get It Done Mini ME",
+              "time": 4,
+              "Description": "what you talking bout Lillis?",
+              "assignedTo": "Ben"
+            },
+            {
+              "Issue_Name": "ticket 3e",
+              "time": 2,
+              "Description": "what is happening?",
+              "assignedTo": "Ben"
+            },
+            {
+              "Issue_Name": "Test 3",
+              "time": "4",
+              "Description": "a 3rd Test",
+              "assignedTo": "Ben"
+            }
+          ],
+          "In_Progress": [],
+          "Done": []
+        }
       }
     ],
-    "In_Progress:": [],
+    "In_Progress": [],
     "Done": []
   }
 }
