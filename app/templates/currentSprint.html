@@ -92,5 +92,33 @@
 
   </div>
 
+  <script>
+    function dragInit() {
+      $(".draggable").draggable({
+        containment: "#containment-wrapper",
+        scroll: true,
+        snap: "#containment-wrapper table tr th",
+        snapMode: "inner"
+      });
+    }
 
+    $(function(){
+      dragInit();
+
+      $("#containment-wrapper table tr th").droppable({
+        drop: function(event, ui) {
+          var clone = document.createElement("div");
+          clone.className = (ui.draggable[0]).className;
+          clone.innerHTML = ((ui.draggable[0]).innerHTML);
+
+          $(event.target).append(clone);
+
+          $(ui.draggable).remove();
+          $(ui.helper).remove();
+
+          dragInit();
+        }
+      });
+    });
+  </script>
 {%endblock%}
