@@ -138,7 +138,7 @@ def projectBackLog(current_user, projectName):
     #print(proj)
     return render_template("backlog.html", current_user=current_user,proj=proj)
 
-@app.route('/<current_user>/<projectName>/<Issue_Name>', methods=['GET', 'POST'])
+@app.route('/<current_user>/<projectName>/<Issue_Name>/Active', methods=['GET', 'POST'])
 def projectTOCurrentSprint(current_user, projectName, Issue_Name):
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
@@ -158,7 +158,7 @@ def projectTOCurrentSprint(current_user, projectName, Issue_Name):
             proj['BackLog'].remove(copy)  #remove from SandBox
             with open(fileP,'w') as fileout:
                 fileout.write(json.dumps(proj, indent=2))
-    return redirect(url_for('projectBackLog', current_user=current_user, projectName= proj['name'] ))
+    return redirect(url_for('projectCurrentSprint', current_user=current_user, projectName= proj['name'] ))
 
 @app.route('/<current_user>/<projectName>/SandBox', methods=['GET', 'POST'])
 def projectSandBox(current_user, projectName):
@@ -195,19 +195,19 @@ def SandBoxTOBackLog(current_user, projectName, Issue_Name):
     #print(fileP)
     #print(filein)
     proj = json.loads(filein.read())
-    print(proj["SandBox"])
-    for idea in proj['SandBox']:
-        print(idea['Issue_Name']+" "+Issue_Name, file=sys.stdout)
+    todList = proj['SandBox']
+    for idea in todList:
+        print(idea['Issue_Name'], file=sys.stdout)
         if idea['Issue_Name'] == Issue_Name:
             copy=idea # get item based on Issue_Name
             print(idea)
             proj['BackLog'].append(idea) # copy it to BackLog
+            print(proj["BackLog"], file=sys.stdout)
             proj['SandBox'].remove(idea)  #remove from SandBox
+            print(proj["SandBox"], file=sys.stdout)
             with open(fileP,'w') as fileout:
                 fileout.write(json.dumps(proj, indent=2))
     return redirect(url_for('projectBackLog', current_user=current_user, projectName= proj['name'] ))
-
-    #return render_template("SandBox.html", current_user=current_user,proj=proj, form=form, form2=form2)
 
 @app.route('/<current_user>/createProject', methods=['GET', 'POST'])
 def createProj(current_user):
