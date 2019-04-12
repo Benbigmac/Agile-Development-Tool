@@ -93,6 +93,7 @@
   </div>
 
   <script>
+
     function dragInit() {
       $(".draggable").draggable({
         containment: "#containment-wrapper",
@@ -102,7 +103,8 @@
       });
     }
 
-    $(function(){
+    $( document ).ready(function() {
+
       dragInit();
 
       $("#containment-wrapper table tr th").droppable({

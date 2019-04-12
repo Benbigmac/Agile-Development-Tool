@@ -43,30 +43,30 @@ def modifyAccount(current_user,projectName):
         #form
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
-    print(fileP)
-    print(filein)
+    #print(fileP)
+    #print(filein)
     proj = json.loads(filein.read())
-    print(proj)
+    #print(proj)
     return render_template("accountSettings.html", current_user=current_user,proj=proj)
 
 @app.route('/<current_user>/<projectName>/CurrentSprint')
 def projectCurrentSprint(current_user, projectName):
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
-    print(fileP)
-    print(filein)
+    #print(fileP)
+    #print(filein)
     proj = json.loads(filein.read())
-    print(proj)
+    #print(proj)
     return render_template("currentSprint.html", current_user=current_user,proj=proj)
 
 @app.route('/<current_user>/<projectName>/<Issue_Name>/CreateTask', methods=['GET', 'POST'])
 def projectcreateTask(current_user, projectName, Issue_Name):
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
-    print(fileP)
-    print(filein)
+    #print(fileP)
+    #print(filein)
     proj = json.loads(filein.read())
-    print(proj)
+    #print(proj)
     if request.method == 'POST':
         Issue_Name3 = request.form['taskName']
         Description = request.form['taskGoal']
@@ -94,10 +94,10 @@ def projectcreateTask(current_user, projectName, Issue_Name):
 def projectSprints(current_user, projectName):
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
-    print(fileP)
-    print(filein)
+    #print(fileP)
+    #print(filein)
     proj = json.loads(filein.read())
-    print(proj)
+    #print(proj)
     return render_template("sprints.html", current_user=current_user,proj=proj)
 
 @app.route('/<current_user>/<projectName>/Discussion')
@@ -106,14 +106,14 @@ def talkBox(current_user, projectName):
     filein = open(fileP, 'r')
     proj = json.loads(filein.read())
     #print(proj)
-    print("\n\nDiscussion\n\n")
+    #print("\n\nDiscussion\n\n")
     discussion = proj["Discussion"]
     return render_template("discussionBoard.html", current_user=current_user,proj=proj)
 
 @app.route('/<current_user>/projects')
 def projectList(current_user):
     filein = open((dataString+'projects.json'), 'r')
-    print (filein.read(), file=sys.stdout)
+    #print (filein.read(), file=sys.stdout)
     filein.seek(0,0)
     projList = json.loads(filein.read())
     return render_template("projects.html",projectList=projList, current_user=current_user)
@@ -122,37 +122,37 @@ def projectList(current_user):
 def projectSplash(current_user, projectName):
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
-    print(fileP)
-    print(filein)
+    #print(fileP)
+    #print(filein)
     proj = json.loads(filein.read())
-    print(proj)
+    #print(proj)
     return render_template("projectDash.html", current_user=current_user,proj=proj)
 
 @app.route('/<current_user>/<projectName>/BackLog')
 def projectBackLog(current_user, projectName):
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
-    print(fileP)
-    print(filein)
+    #print(fileP)
+    #print(filein)
     proj = json.loads(filein.read())
-    print(proj)
+    #print(proj)
     return render_template("backlog.html", current_user=current_user,proj=proj)
 
 @app.route('/<current_user>/<projectName>/<Issue_Name>', methods=['GET', 'POST'])
 def projectTOCurrentSprint(current_user, projectName, Issue_Name):
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
-    print(fileP)
-    print(filein)
+    #print(fileP)
+    #print(filein)
     proj = json.loads(filein.read())
-    print(proj)
-    print(proj['currentSprint'])
+    #print(proj)
+    #print(proj['currentSprint'])
     todList=proj['currentSprint']["TODO"]
-    print(todList)
+    #print(todList)
     for idea in proj['BackLog']:
         if idea['Issue_Name'] == Issue_Name:
             copy=idea # get item based on Issue_Name
-            print(copy)
+            #print(copy)
             todList.append(copy) # copy it to BackLog
             proj['currentSprint']["TODO"]=todList
             proj['BackLog'].remove(copy)  #remove from SandBox
@@ -164,10 +164,10 @@ def projectTOCurrentSprint(current_user, projectName, Issue_Name):
 def projectSandBox(current_user, projectName):
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
-    print(fileP)
-    print(filein)
+    #print(fileP)
+    #print(filein)
     proj = json.loads(filein.read())
-    print(proj)
+    #print(proj)
     if request.method == 'POST':
         Issue_Name=request.form["Issue_Name"]
         time=request.form["time"]
@@ -192,16 +192,17 @@ def projectSandBox(current_user, projectName):
 def SandBoxTOBackLog(current_user, projectName, Issue_Name):
     fileP = dataString+projectName+'.json'
     filein = open(fileP, 'r')
-    print(fileP)
-    print(filein)
+    #print(fileP)
+    #print(filein)
     proj = json.loads(filein.read())
-    print(proj)
+    print(proj["SandBox"])
     for idea in proj['SandBox']:
+        print(idea['Issue_Name']+" "+Issue_Name, file=sys.stdout)
         if idea['Issue_Name'] == Issue_Name:
             copy=idea # get item based on Issue_Name
-            print(copy)
-            proj['BackLog'].append(copy) # copy it to BackLog
-            proj['SandBox'].remove(copy)  #remove from SandBox
+            print(idea)
+            proj['BackLog'].append(idea) # copy it to BackLog
+            proj['SandBox'].remove(idea)  #remove from SandBox
             with open(fileP,'w') as fileout:
                 fileout.write(json.dumps(proj, indent=2))
     return redirect(url_for('projectBackLog', current_user=current_user, projectName= proj['name'] ))
@@ -215,16 +216,16 @@ def createProj(current_user):
         filein = open(dataString+'projects.json', 'r')
         projList = json.loads(filein.read())
         filein.close()
-        print(projList, file=sys.stdout)
+        #print(projList, file=sys.stdout)
 
         projectName=request.form["titleOfProject"]
         description=request.form["description"]
 
-        print(projectName)
-        print(description)
+        #print(projectName)
+        #print(description)
         newProj={"name":projectName,"description":description}
         projList.append(newProj)
-        print(projList)
+        #print(projList)
 
         with open(dataString+'projects.json','w') as fileout:
             fileout.write(json.dumps(projList, indent=2))
@@ -235,15 +236,15 @@ def createProj(current_user):
 @app.route('/DBTEST')
 def dbTest():
     filein = open('C:/Users/swald/group7/app/data/projects.json', 'r')
-    print (filein.read(), file=sys.stdout)
+    #print (filein.read(), file=sys.stdout)
     filein.seek(0,0)
     projList = json.loads(filein.read())
-    # print(projList)
+    # #print(projList)
     # db.session.add(p)
     # db.session.commit()
     # ListOProjects = Projects.query.all()
     # for p in ListOProjects:
-    #     print(p.name, p.ProjectID)
+    #     #print(p.name, p.ProjectID)
     # projList = ListOProjects
     return render_template("projects.html",projectList=projList, current_user=current_user)
 
