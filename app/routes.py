@@ -195,6 +195,7 @@ def SandBoxTOBackLog(current_user, projectName, Issue_Name):
     #print(fileP)
     #print(filein)
     proj = json.loads(filein.read())
+
     todList = proj['SandBox']
     for idea in todList:
         print(idea['Issue_Name'], file=sys.stdout)
