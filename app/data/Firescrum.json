@@ -9,17 +9,20 @@
   ],
   "BackLog": [
     {
-      "Issue_Name": "Add button to move to sprint by number",
+      "Issue_Name": "Implement proper data modificatoin",
       "time": 4,
+
       "Description": "This will be done by dropdone or something",
       "Tasks": {"TODO": [],
         "In_Progress": [],
       "Done": []
                   }
+
     },
     {
-      "Issue_Name": "Implement proper data modificatoin",
+      "Issue_Name": "getItDone",
       "time": 4,
+
       "Description": "This will allow easier modification of each field",
       "Tasks": {"TODO": [],
         "In_Progress": [],
@@ -34,6 +37,7 @@
         "In_Progress": [],
       "Done": []
     }}
+
   ],
   "sprints": [
     {
@@ -119,6 +123,11 @@
           "In_Progress": [],
           "Done": []
         }
+      },
+      {
+        "Issue_Name": "Add button to move to sprint by number",
+        "time": 4,
+        "Description": "This will be done by dropdone or something"
       }
     ],
     "In_Progress": [],
