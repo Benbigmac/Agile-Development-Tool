@@ -112,5 +112,14 @@
     ],
     "In_Progress": [],
     "Done": []
-  }
+  },
+  "Discussion":[
+    {
+      "name":"Swalden",
+      "message":"test-discussion 1",
+      "message_id":1,
+      "time":"5",
+      "replies":[]
+    }
+  ]
 }
