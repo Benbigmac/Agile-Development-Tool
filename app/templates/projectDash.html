@@ -16,6 +16,8 @@
           <!-- Compiled and minified JavaScript -->
           <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+    <!-- Icon -->
+    <link rel="icon" href="{{ url_for('static', filename='img/fire.ico') }}">
 
   </head>
   <body>
@@ -75,7 +77,6 @@
         </div></div>
       <div id='content'>
         {% block body %}
-
         {% endblock %}
       </div>
 
@@ -83,15 +84,13 @@
     <!-- notice the data-mdc-auto-init attribute;  this value is used by the autoinit script -->
 
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <!-- Latest compiled JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="script.js"></script>
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <!-- <script src="script.js"></script> -->
 
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-
 
     <script type="text/javascript">
     // wait til the document is ready
@@ -105,11 +104,10 @@
         drawer.open = !drawer.open;
       });
       // could/should/would add an event handler for the drawer items;  click should close the drawer
-
-
-    })
-
+    });
     </script>
+
+
 
   </body>
 </html>
