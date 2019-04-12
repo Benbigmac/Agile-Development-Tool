@@ -2,11 +2,6 @@
   "name": "Firescrum",
   "SandBox": [
     {
-      "Issue_Name": "getItDone",
-      "time": 4,
-      "Description": "what you talking bout Lillis?"
-    },
-    {
       "Issue_Name": "Make story",
       "time": "2",
       "Description": "yes sir this works"
@@ -14,14 +9,14 @@
   ],
   "BackLog": [
     {
-      "Issue_Name": "Add button to move to sprint by number",
-      "time": 4,
-      "Description": "This will be done by dropdone or something"
-    },
-    {
       "Issue_Name": "Implement proper data modificatoin",
       "time": 4,
       "Description": "This will allow easier modification of each field"
+    },
+    {
+      "Issue_Name": "getItDone",
+      "time": 4,
+      "Description": "what you talking bout Lillis?"
     }
   ],
   "sprints": [
@@ -108,18 +103,23 @@
           "In_Progress": [],
           "Done": []
         }
+      },
+      {
+        "Issue_Name": "Add button to move to sprint by number",
+        "time": 4,
+        "Description": "This will be done by dropdone or something"
       }
     ],
     "In_Progress": [],
     "Done": []
   },
-  "Discussion":[
+  "Discussion": [
     {
-      "name":"Swalden",
-      "message":"test-discussion 1",
-      "message_id":1,
-      "time":"5",
-      "replies":[]
+      "name": "Swalden",
+      "message": "test-discussion 1",
+      "message_id": 1,
+      "time": "5",
+      "replies": []
     }
   ]
 }
