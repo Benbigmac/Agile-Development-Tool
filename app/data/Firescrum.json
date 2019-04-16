@@ -2,9 +2,20 @@
   "name": "Firescrum",
   "SandBox": [
     {
-      "Issue_Name": "Make story",
-      "time": "2",
-      "Description": "yes sir this works"
+
+      "Issue_Name": "",
+      "time": "",
+      "Description": ""
+    },
+    {
+      "Issue_Name": "Project Demo",
+      "time": "1",
+      "Description": "some description"
+    },
+    {
+      "Issue_Name": "Project Demo",
+      "time": "1",
+      "Description": "some description"
     }
   ],
   "BackLog": [
@@ -12,31 +23,30 @@
       "Issue_Name": "Implement proper data modificatoin",
       "time": 4,
 
-      "Description": "This will be done by dropdone or something",
-      "Tasks": {"TODO": [],
-        "In_Progress": [],
-      "Done": []
-                  }
-
-    },
-    {
-      "Issue_Name": "getItDone",
-      "time": 4,
-
       "Description": "This will allow easier modification of each field",
-      "Tasks": {"TODO": [],
+      "Tasks": {
+        "TODO": [],
         "In_Progress": [],
-      "Done": []
-                  }
+        "Done": []
+      }
+
     },
     {
       "Issue_Name": "getItDone",
       "time": 4,
+
       "Description": "what you talking bout Lillis?",
-      "Tasks": {"TODO": [],
+      "Tasks": {
+        "TODO": [],
         "In_Progress": [],
-      "Done": []
-    }}
+        "Done": []
+      }
+    },
+    {
+      "Issue_Name": "Make story",
+      "time": "2",
+      "Description": "yes sir this works"
+    }
 
   ],
   "sprints": [
@@ -127,7 +137,21 @@
       {
         "Issue_Name": "Add button to move to sprint by number",
         "time": 4,
-        "Description": "This will be done by dropdone or something"
+
+        "Description": "This will be done by dropdone or something",
+        "Tasks": {
+          "TODO": [
+            {
+              "Issue_Name": "New Task #1",
+              "time": "2",
+              "Description": "descr",
+              "assignedTo": "Ben"
+            }
+          ],
+          "In_Progress": [],
+          "Done": []
+        }
+
       }
     ],
     "In_Progress": [],

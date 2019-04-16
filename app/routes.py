@@ -3,6 +3,14 @@ from app import app
 from app.forms import LoginForm, RegistrationForm, ProjectForm,TaskForm,SandBox,ConvertToBackLog
 import json, sys
 
+
+#Merge with Microsoft Project
+#merge github
+#implement modals
+#work on cleaning up interface
+# add some features if we can
+
+
 current_user=""
 #dataString='/Users/lzhou/Documents/group7/app/data/'
 dataString='C:/Users/benma/Desktop/cs442/code/group7/app/data/'
@@ -172,7 +180,11 @@ def projectSandBox(current_user, projectName):
         Issue_Name=request.form["Issue_Name"]
         time=request.form["time"]
         Description=request.form["Description"]
-        item={"Issue_Name":Issue_Name,"time":time,"Description":Description}
+        item={"Issue_Name":Issue_Name,"time":time,"Description":Description  "Tasks": {
+    "TODO": [],
+    "In_Progress": [],
+    "Done": []
+  } }
         proj["SandBox"].append(item)
         with open(fileP,'w') as fileout:
             fileout.write(json.dumps(proj, indent=2))
