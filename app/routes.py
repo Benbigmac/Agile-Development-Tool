@@ -180,7 +180,7 @@ def projectSandBox(current_user, projectName):
         Issue_Name=request.form["Issue_Name"]
         time=request.form["time"]
         Description=request.form["Description"]
-        item={"Issue_Name":Issue_Name,"time":time,"Description":Description  "Tasks": {
+        item={"Issue_Name":Issue_Name,"time":time,"Description":Description,  "Tasks": {
     "TODO": [],
     "In_Progress": [],
     "Done": []
