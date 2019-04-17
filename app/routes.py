@@ -243,6 +243,12 @@ def createProj(current_user):
         with open(dataString+'projects.json','w') as fileout:
             fileout.write(json.dumps(projList, indent=2))
 
+
+        projectJson = {"name":projectName,"SandBox":list(),"BackLog":list(),"sprints":list(),"currentSprint":dict(),"Discussion":list()}
+
+        with open(dataString+projectName+".json",'w') as jsonfile:
+            jsonfile.write(json.dumps(projectJson, indent=2))
+
         return redirect(url_for('projectList', current_user= current_user))
     return render_template("createProject.html",form=form)
 
