@@ -26,7 +26,7 @@ def home():
         return render_template("index.html",title="FireScrum",form=form,current_user="")
 
 
-@app.route('/signUp')
+@app.route('/signUp', methods=['GET', 'POST'])
 def signUpPage():
     form = RegistrationForm()
     if request.method == 'POST':
