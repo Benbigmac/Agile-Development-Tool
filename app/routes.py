@@ -4,17 +4,18 @@ from app.forms import LoginForm, RegistrationForm, ProjectForm,TaskForm,SandBox,
 import json, sys
 
 
-#Merge with Microsoft Project
-#merge github
-#implement modals
-#work on cleaning up interface
-# add some features if we can
+#TODO Merge with Microsoft Project
+#TODO merge github
+#TODO implement modals
+#TODO work on cleaning up interface
+#TODO add some features if we can
+#TODO Implement database features with applet security
 
 
 current_user=""
 #dataString='/Users/lzhou/Documents/group7/app/data/'
-dataString='C:/Users/benma/Desktop/cs442/code/group7/app/data/'
-#dataString='C:/Users/swald/group7/app/data/'
+#dataString='C:/Users/benma/Desktop/cs442/code/group7/app/data/'
+dataString='C:/Users/swald/group7/app/data/'
 @app.route('/', methods=['GET', 'POST'])
 def home():
     form = LoginForm()
@@ -24,19 +25,59 @@ def home():
     else:
         return render_template("index.html",title="FireScrum",form=form,current_user="")
 
-@app.route('/signUp')
+
+@app.route('/signUp', methods=['GET', 'POST'])
 def signUpPage():
     form = RegistrationForm()
+    if request.method == 'POST':
+        nameF = request.form["nameF"]
+        nameL = request.form["nameL"]
+        email = request.form["email"]
+        uname = request.form["username"]
+        pword = request.form["password"]
+
+        account = {"username":uname,"fname":nameF,"lname":nameL,"email":email,"password":pword}
+
+        with open(dataString+"account.json",'r') as file:
+            accounts = json.loads(file.read())
+        
+        accounts.append(account)
+
+        with open(dataString+"account.json",'w') as fileout:
+            fileout.write(json.dumps(accounts, indent=2))
+
     return render_template("signUp.html",form=form)
+
+
+def credentialCheck(username, password):
+    with open(dataString+"account.json", 'r') as file:
+        accounts = json.loads(file.read())
+    print(accounts)
+
+    for user in accounts:
+        if user["username"] == username and user["password"] == password:
+            return user
+    
+    return None
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if request.method == 'POST':
-        current_user=request.form["username"]
+        current_user = request.form["username"]
+        current_pass = request.form["password"]
+
+        user = credentialCheck(current_user, current_pass)
+        if user:
+            print(user)
+            return redirect(url_for('projectList', current_user= current_user))
+        else:
+            print("invalid user")
+            return render_template("index.html",title="FireScrum",form=form,current_user="")
+
         #if current_user.is_authenticated():
         #    g.user = current_user.username
-        return redirect(url_for('projectList', current_user= current_user))
+        #return redirect(url_for('projectList', current_user= current_user))
     else:
         return render_template('signIn.html', title='Sign In', form=form,current_user=current_user)
 
