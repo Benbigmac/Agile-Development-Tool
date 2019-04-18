@@ -11,6 +11,18 @@ class Accounts(db.Model):
     email = db.Column(db.String(50), index=True, unique=True)
     posts = db.relationship('Post', backref='author', lazy='dynamic')
 
+    def is_authenticated(self):
+        return True
+    
+    def is_active(self):
+        return True
+
+    def is_anonymous(self):
+        return True
+
+    def get_id(self):
+        return unicode(self.AccID)
+        
     def __repr__(self):
         return '<Accounts {}>'.format(self.username)
 
