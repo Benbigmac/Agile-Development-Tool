@@ -54,7 +54,9 @@ def signUpPage():
 def credentialCheck(username, password):
     with open(dataString+"account.json", 'r') as file:
         accounts = json.loads(file.read())
+
     #print(accounts)
+
 
     for user in accounts:
         if user["username"] == username and user["password"] == password:
@@ -71,10 +73,12 @@ def login():
 
         user = credentialCheck(current_user, current_pass)
         if user:
+
             #print(user)
             return redirect(url_for('projectList', current_user= current_user))
         else:
             #print("invalid user")
+
             return render_template("index.html",title="FireScrum",form=form,current_user="")
 
         #if current_user.is_authenticated():
