@@ -21,6 +21,7 @@ def installRequired():
     install('pipenv')
     install('Flask-SQLAlchemy')
     install('flask-migrate')
+    install('pytest')
 
 
 if __name__ == "__main__":
