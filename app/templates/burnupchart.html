@@ -1,0 +1,97 @@
+{% extends "projectDash.html" %}
+{%block body%}
+
+<html>
+
+  <head>
+    <script src="https://cdn.anychart.com/js/latest/anychart.min.js" type="text/javascript"></script>
+    <script src="https://cdn.anychart.com/js/latest/data-adapter.min.js" type="text/javascript"></script>
+    <script src="https://cdn.anychart.com/themes/latest/wines.min.js" type="text/javascript"></script>
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Simple Burndown Chart</title>
+        <link type="text/css" rel="stylesheet" href="webjars/simple-burndown-chart/${simple-burndown-chart-js.version}/simple-burndown-chart.css"/>
+        <script src="webjars/d3js/3.1.5/d3.min.js" charset="utf-8"></script>
+        <!--<script src="webjars/d3js/3.1.5/d3.js" charset="utf-8"></script>-->
+        <script src="webjars/simple-burndown-chart/${simple-burndown-chart-js.version}/simple-burndown-chart.js"></script>
+
+  </head>
+
+  <body>
+    <div id="container"></div>
+    <table id="tableWithData" border="1" cellpadding="5">
+      <title>Project Release Burnup Chart (in points)</title>
+      <thead>
+        <tr>
+          <th>Release ID</th>
+          <th>Preliminary Estimate</th>
+          <th>Story Points</th>
+          <th>Feature Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>R1S1</td>
+          <td>10</td>
+          <td>5</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>R1S2</td>
+          <td>14</td>
+          <td>4</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>R1S3</td>
+          <td>20</td>
+          <td>4</td>
+          <td>6</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
+
+
+<script type="application/javascript">
+    var config = { showGrid: document.getElementById("showGrid").checked,
+                   showComments: document.getElementById("showComments").checked };
+    function renderTextArea() { SBD.render(document.getElementById("data").value, config); }
+    document.getElementById("data").onchange = renderTextArea;
+    document.getElementById("showGrid").onclick = function() {
+        config.showGrid = document.getElementById("showGrid").checked;
+        renderTextArea();
+    }
+    document.getElementById("showComments").onclick = function() {
+        config.showComments = document.getElementById("showComments").checked;
+        renderTextArea();
+    }
+    renderTextArea();
+</script>
+
+
+
+<div style="float: left" id="chart"></div>
+
+
+
+<br/>
+<strong>Configuration:</strong>
+<br/>
+<input type="checkbox" id="showGrid"><label for="showGrid" onclick="ifCheck()">Show Grid</label><br/>
+<script>
+function myFunction() {
+  var checkBox = document.getElementById("myCheck");
+  var text = document.getElementById("text");
+  if (checkBox.checked == true){
+    text.style.display = "block";
+  } else {
+     text.style.display = "none";
+  }
+}
+</script>
+<br style="clear: both"/>
+
+
+{% endblock %}
