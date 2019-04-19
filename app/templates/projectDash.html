@@ -50,6 +50,10 @@
               <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
               <span class="mdc-list-item__text">SandBox</span>
             </a>
+            <a class="mdc-list-item" id="burnupchart" href="{{url_for('projectBurnupChart', current_user=current_user, projectName= proj['name'] )}}">
+              <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+              <span class="mdc-list-item__text">Burnup Report</span>
+            </a>
             <a class="mdc-list-item" id="sand" href="{{url_for('modifyAccount', current_user=current_user, projectName= proj['name'] )}}">
               <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
               <span class="mdc-list-item__text">Account Settings</span>

@@ -70,3 +70,12 @@ input, select, textarea {
 .light-yellow {
   background-color: #ffff66 !important;
 }
+
+.checkbox{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}

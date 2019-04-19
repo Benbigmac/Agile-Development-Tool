@@ -13,9 +13,10 @@ import json, sys
 
 
 current_user=""
-#dataString='/Users/lzhou/Documents/group7/app/data/'
+dataString='/Users/lzhou/Documents/group7/app/data/'
 #dataString='C:/Users/benma/Desktop/cs442/code/group7/app/data/'
-dataString='C:/Users/swald/group7/app/data/'
+#dataString='C:/Users/swald/group7/app/data/'
+
 @app.route('/', methods=['GET', 'POST'])
 def home():
     form = LoginForm()
@@ -40,7 +41,7 @@ def signUpPage():
 
         with open(dataString+"account.json",'r') as file:
             accounts = json.loads(file.read())
-        
+
         accounts.append(account)
 
         with open(dataString+"account.json",'w') as fileout:
@@ -61,7 +62,7 @@ def credentialCheck(username, password):
     for user in accounts:
         if user["username"] == username and user["password"] == password:
             return user
-    
+
     return None
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -192,6 +193,16 @@ def projectBackLog(current_user, projectName):
     proj = json.loads(filein.read())
     #print(proj)
     return render_template("backlog.html", current_user=current_user,proj=proj)
+
+@app.route('/<current_user>/<projectName>/burnupchart')
+def projectBurnupChart(current_user, projectName):
+    fileP = dataString+projectName+'.json'
+    filein = open(fileP, 'r')
+    #print(fileP)
+    #print(filein)
+    proj = json.loads(filein.read())
+    #print(proj)
+    return render_template("burnupchart.html", current_user=current_user,proj=proj)
 
 @app.route('/<current_user>/<projectName>/<Issue_Name>/Active', methods=['GET', 'POST'])
 def projectTOCurrentSprint(current_user, projectName, Issue_Name):
