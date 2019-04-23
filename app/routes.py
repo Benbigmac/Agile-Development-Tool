@@ -204,6 +204,16 @@ def projectBurnupChart(current_user, projectName):
     #print(proj)
     return render_template("burnupchart.html", current_user=current_user,proj=proj)
 
+@app.route('/<current_user>/<projectName>/issues')
+def projectIssues(current_user, projectName):
+    fileP = dataString+projectName+'.json'
+    filein = open(fileP, 'r')
+    #print(fileP)
+    #print(filein)
+    proj = json.loads(filein.read())
+    #print(proj)
+    return render_template("issues.html", current_user=current_user,proj=proj)
+
 @app.route('/<current_user>/<projectName>/<Issue_Name>/Active', methods=['GET', 'POST'])
 def projectTOCurrentSprint(current_user, projectName, Issue_Name):
     fileP = dataString+projectName+'.json'
