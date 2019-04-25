@@ -1,0 +1,10 @@
+label {
+    width:180px;
+    clear:left;
+    text-align:right;
+}
+
+.form-container button {
+  margin: auto;
+  display: block;
+}
