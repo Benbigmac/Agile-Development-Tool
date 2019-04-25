@@ -29,6 +29,20 @@ class ProjectForm(FlaskForm):
 
 
 class TaskForm(FlaskForm):
+    taskName = StringField('Task Name')
     taskGoal = StringField('State the goal')
     storyPoint = StringField('Story Point')
     assignedTo = StringField('Assigned To')
+    submit = SubmitField("Create Account")
+
+class SandBox(FlaskForm):
+    Issue_Name = StringField('Issue Name')
+    time = StringField('Time')
+    Description = StringField('description')
+    submit = SubmitField('Add to SandBox')
+
+class ConvertToBackLog(FlaskForm):
+    submit = SubmitField('Convert To BackLog')
+
+class AddToSprint(FlaskForm):
+    submit = SubmitField('Add to Sprint')

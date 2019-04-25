@@ -1,17 +1,23 @@
 [
-	{
-		"username":"swalde3",
-		"fname":"stephen",
-		"lname":"walden",
-		"email":"sew@jdwalden.com",
-		"password":"walden"
-	},
-	{
-		"username":"bmacio2",
-		"fname":"bennett",
-		"lname":"macio",
-		"email":"bmacio2@uic.edu",
-		"password":"macio"
-	}
-
+  {
+    "username": "swalde3",
+    "fname": "stephen",
+    "lname": "walden",
+    "email": "sew@jdwalden.com",
+    "password": "walden"
+  },
+  {
+    "username": "bmacio2",
+    "fname": "bennett",
+    "lname": "macio",
+    "email": "bmacio2@uic.edu",
+    "password": "macio"
+  },
+  {
+    "username": "sew",
+    "fname": "Stephen",
+    "lname": "Walden",
+    "email": "sew@jdwalden.com",
+    "password": "sew"
+  }
 ]

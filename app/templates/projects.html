@@ -2,64 +2,66 @@
 {% block body %}
 
 
-<body><center>
+<body>
+  <center>
 
- <div class="col s12 m6">
-   <div class="card grey darken-1">
-     <div class="card-content white-text">
-     </div>
-     <div class="card-action">
-       <a href="/{{current_user}}/createProject">Create a new project</a>
-     </div>
-   </div>
- </div>
-
-<body></center>
-
-
-{% if not session.logged_in %}
-<div class="row">
-{% for proj in projectList %}
-
-  <div class="col s12 m6">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">{{ proj.name }}</span>
-        <p>{{ proj.description }}</p>
-      </div>
-      <div class="card-action">
-        <a href="../{{current_user}}/projects/{{ proj.name }}">Open</a>
+    <div class="col s12 m6">
+      <div class="card grey darken-1">
+        <div class="card-content white-text">
+        </div>
+        <div class="card-action">
+          <a href="/{{current_user}}/createProject">Create a new project</a>
+        </div>
       </div>
     </div>
-  </div>
+
+    <body>
+  </center>
 
 
+  {% if not current_user %}
+  <div class="row">
+    {% for proj in projectList %}
 
-{% endfor %}
-</div>
-{% else %}
-<div class="row">
-{% for proj in projectList %}
-
-  <div class="col s12 m6">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">{{ proj.name }}</span>
-        <p>{{ proj.description }}</p>
-      </div>
-      <div class="card-action">
-        <a href="/{{ proj.description }}">Open</a>
-
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">{{ proj['name'] }}</span>
+          <p>{{ proj.description }}</p>
+        </div>
+        <div class="card-action">
+          <a href="{{url_for('projectSplash', current_user=current_user, projectName= proj['name'] )}}">Open</a>
+        </div>
       </div>
     </div>
+
+
+
+    {% endfor %}
   </div>
+  {% else %}
+  <div class="row">
+    {% for proj in projectList %}
+
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">{{ proj['name'] }}</span>
+          <p>{{ proj.description }}</p>
+        </div>
+        <div class="card-action">
+          <a href="{{url_for('projectSplash', current_user=current_user, projectName= proj['name'] )}}">Open</a>
+
+        </div>
+      </div>
+    </div>
 
 
 
-{% endfor %}
-</div>
-{% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
 
 
 
-{% endblock %}
+  {% endblock %}
