@@ -1,0 +1,26 @@
+label {
+    width:180px;
+    clear:left;
+    text-align:right;
+}
+
+.navbar {
+  margin-bottom: 15px;
+}
+
+.navbar-toggler {
+  margin: 10px;
+}
+
+.card center h1 {
+  font-size: 3.2rem;
+}
+
+#logo {
+  height: 50vh;
+}
+
+.form-container button {
+  margin: auto;
+  display: block;
+}
