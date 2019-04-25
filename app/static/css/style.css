@@ -98,3 +98,23 @@ input, select, textarea {
   text-align: center !important;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+
+#containment-wrapper table .card {
+  text-align: center;
+}
+
+#containment-wrapper table .card-content{
+  padding: 5px;
+}
+
+#containment-wrapper table .card span{
+  font-size: 18px;
+}
+
+#containment-wrapper table .card h5{
+  margin: 0px;
+}
+
+#containment-wrapper table tr th .sprintTask{
+  padding: 5px;
+}
