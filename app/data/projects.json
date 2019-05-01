@@ -1,14 +1,10 @@
-[
-  {
-    "name": "Firescrum",
-    "description": "It's What you're using"
-  },
-  {
-    "name": "Phteven_Walden",
-    "description": "The man of the hour"
-  },
-  {
-    "name": "HelloWorld",
-    "description": "Anything but this thing"
+[	
+  {	
+    "name": "Firescrum",	
+    "description": "It's What you're using"	
+  },	
+  {	
+    "name": "Phteven_Walden",	
+    "description": "The man of the hour"	
   }
 ]
