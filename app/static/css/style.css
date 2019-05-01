@@ -21,10 +21,8 @@ form {
 }
 
 label {
-    width:180px;
-    clear:left;
-    text-align:right;
-    display: block;
+    font-size: 16px;
+    text-align:center;
     font-weight: bold;
 }
 
@@ -117,4 +115,9 @@ input, select, textarea {
 
 #containment-wrapper table tr th .sprintTask{
   padding: 5px;
+}
+
+#form-container {
+  background-color: white;
+  padding: 30px;
 }

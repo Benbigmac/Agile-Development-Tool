@@ -22,8 +22,8 @@ class RegistrationForm(FlaskForm):
 
 class ProjectForm(FlaskForm):
     titleOfProject = StringField('Project Name')
-    team = StringField('team')
-    description = StringField('description')
+    team = StringField('Team')
+    description = StringField('Description')
     taskGoals = StringField('Goals of Project')
     submit = SubmitField('Create Project')
 
@@ -38,7 +38,7 @@ class TaskForm(FlaskForm):
 class SandBox(FlaskForm):
     Issue_Name = StringField('Issue Name')
     time = StringField('Time')
-    Description = StringField('description')
+    Description = StringField('Description')
     submit = SubmitField('Add to SandBox')
 
 class ConvertToBackLog(FlaskForm):
